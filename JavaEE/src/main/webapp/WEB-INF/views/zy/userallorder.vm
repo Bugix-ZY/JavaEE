@@ -1,0 +1,60 @@
+#tiles_insertTemplate({"template":"../layout/zjh/cart_template.vm"})
+	#tiles_putAttribute({"name":"title", "value": "所有订单"})#end
+	#tiles_putAttribute({"name":"body"})
+		<div id="header">
+			<div id="header-left">
+				<img src="#springUrl('/resources/images/zjh/returnPointer.png')" onclick="window.history.back();">
+			</div>
+            <div id="header-middle"> 所有订单 </div>
+		</div>
+		
+		<div id="body-content" class="greylink" style="height:93%">
+			<div> 
+				#foreach(${order} in ${orders})
+					#set ($index = ${velocityCount} - 1)
+				 	#if ($!order.order_status == 0)
+				 		#set ($status = "未付款")
+					#elseif ($!order.order_status == 1)
+			 			#set ($status = "已付款")
+				 	#elseif ($!order.order_status == 2)
+				 		#set ($status = "定制中")
+					#elseif ($!order.order_status == 3)
+				 		#set ($status = "已发货")
+				 	#elseif ($!order.order_status == 4)
+				 		#set ($status = "已收货")
+				 	#elseif ($!order.order_status == 5)
+				 		#set ($status = "已取消")
+				 	#else 
+				 		#set ($status = "不详")
+				 	#end
+				 	
+				 	#set ($id = $order.order_id.toString())
+				 		#if ($!ordergoods.get($id).size() > 1)
+				 			#set ($goodsname = "多个商品")
+				 		#else
+				 			#set ($goodsname = $!ordergoods.get($id).get(0).goods_name)
+				 	#end
+				 	<a href="details?order_sn=${order.order_sn}" >
+						<div style=" margin:5%; width: 90%;padding:5px;">
+							<p> 订单编号：$!order.order_sn </p>
+							<p> 下单时间：$date.format('yyyy-MM-dd HH:mm:ss', $order.add_time) </p>
+							<p> 商品：$!goodsname </p>
+							<p> 状态：$status </p>
+							<p> 共 $!ordergoods.get($id).size() 件商品   实际付款 $order.order_price 元 </p>
+						</div>
+					</a>
+					<hr />
+				#end
+			</div>
+		</div>
+		
+		
+		<div id="hiddenValueDiv">
+		</div>
+	
+	
+		
+		
+	#end
+#end
+	

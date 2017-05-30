@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />  
+	<title> 订单管理 </title>
+	<link rel="stylesheet" href="#springUrl('/resources/css/zy/fixed.css')">
+	<script type="text/javascript" src="#springUrl('/resources/js/zy/orderpage.js')"></script>
+	<style type="text/css">
+		#orders {
+			font-family: "微软雅黑", Arial, Helvetica, sans-serif;
+			width: 99%;
+			border-collapse: collapse;
+		}
+
+		#orders td, #orders th {
+			font-size: 1em;
+			border-bottom: 1px solid #333;
+			padding: 3px 7px 2px 7px;
+		}
+		#orders th {
+			font-size: 1em;
+			text-align: left;
+			padding-top: 5px;
+			padding-bottom: 4px;
+			background-color: white;
+			color: #135480;
+		}
+		#orders tr {
+			height: 35px;
+		}
+		td > button {
+			border-radius: 2px;
+			background-color: white;
+			cursor: pointer;
+		}
+		</style>
+</head>
+
+<body onLoad="goPage(1,10, $orders.size());">
+	<div id="topbar"> <h1> 订单管理 </h1> </div>
+
+	<div id="sidebar">
+		<ul>
+			<li><a href="all"> 订单列表 </a></li>
+			<li><a href="search"> 精确搜索 </a></li>
+		</ul>
+	</div>
+
+	<div id="content" style="overflow: scroll;">
+		<table style="font-size:16px;color:#135480">
+			<th style="width:10%"> 订单号 </th>
+			<th style="width:10%"> 商品名称 </th>
+			<th style="width:10%"> 下单时间 </th>
+			<th style="width:5%"> 收货人 </th>
+			<th style="width:10%"> 用户账号 </th>
+			<th style="width:5%"> 用户姓名 </th>
+			<th style="width:5%"> 总金额 </th>
+			<th style="width:5%"> 是否加急 </th>
+			<th style="width:10%"> 备注 </th>
+			<th style="width:5%"> 订单状态 </th>
+			<th style="width:10%"> 发货时间 </th>
+			<th style="width:10%"> 操作 </th>
+			<th>     </th>
+			<th>     </th>	   
+		  </table>
+		  
+		<table id="orders" style="margin:5px">
+			
+	 		#foreach(${order} in ${orders})
+		 		#set ($index = ${velocityCount} - 1)
+		 		#if ($!order.order_status == 0)
+		 			#set ($status = "未付款")
+		 		#elseif ($!order.order_status == 1)
+		 			#set ($status = "已付款")
+		 		#elseif ($!order.order_status == 2)
+		 			#set ($status = "定制中")
+		 		#elseif ($!order.order_status == 3)
+		 			#set ($status = "已发货")
+		 		#elseif ($!order.order_status == 4)
+		 			#set ($status = "已收货")
+		 		#elseif ($!order.order_status == 5)
+		 			#set ($status = "取消")
+		 		#else 
+		 			#set ($status = "unknown")
+		 		#end
+		 		
+		 		#if ($!order.shipped_time == 0)
+		 			#set ($shiptime = "" )
+		 		#else
+		 			#set ($shiptime = $date.format('yyyy-MM-dd HH:mm:ss', $!order.shipped_time) )
+		 		#end
+		 		
+		 		#set ($id = $order.order_id.toString())
+		 		#if ($!ordergoods.get($id).size() > 1)
+		 			#set ($goodsname = "多个商品")
+		 		#else
+		 			#set ($goodsname = $!ordergoods.get($id).get(0).goods_name)
+		 		#end
+		 
+		   		<tr>
+			       	<td style="width:10%"> $!order.order_sn</td>
+			       	<td style="width:10%"> $!goodsname </td>
+			       	<td style="width:10%"> $date.format('yyyy-MM-dd HH:mm:ss', $order.add_time) </td>
+			       	<td style="width:5%"> $!order.consignee </td>
+					<td style="width:10%"> $!users.get($index).mobile_phone </td>
+					<td style="width:5%"> $!users.get($index).user_name </td>
+					<td style="width:5%"> $!order.order_price</td>
+					<td style="width:5%"> $!order.isUrgency </td>
+					<td style="width:10%"> $!order.remark </td>
+					<td id="status" style="width:5%"> $status </td>
+					<td style="width:10%"> $!shiptime </td>
+			       	<td> 
+			       		<form action="details" method="get">
+			       			<input type="hidden" name="order_sn" value="$order.order_sn"/>
+			       			<input type="submit" value="查看" style="font-size:16px;"/> 
+			       		</form>
+			       	</td>
+					<td> 
+						<form action="update" method="get">
+			       			<input type="hidden" name="order_sn" value="$order.order_sn"/>
+			       			<input type="submit" value="修改" style="font-size:16px;"/> 
+			       		</form>
+					</td>
+					<td>
+						#if ($!order.order_status == 1)
+						<form action="confirm" method="get"> 
+							<input type="hidden" name="order_sn" value="$order.order_sn"/>
+							<input type="submit" value="确认" style="font-size:16px;"></input> 
+						</form>
+						#elseif ($!order.order_status == 2)
+						<form action="deliver" method="get"> 
+							<input type="hidden" name="order_sn" value="$order.order_sn"/>
+							<input type="submit" value="发货" style="font-size:16px;"></input> 
+						</form>
+						#else
+						<form action="" method="get"> 
+							<input type="submit" value="确认" disabled=true style="font-size:16px;" ></input> 
+						</form>
+						#end
+		
+					</td>
+		     	</tr>
+	     	#end
+	     	
+	     </table>
+	     <hr />
+	    <table style="margin-left:30%">
+        	<tr><td><div id="barcon" name="barcon"></div></td></tr>
+    	</table>
+	     <p/>
+ 	</div>	
+</body>
+</html>

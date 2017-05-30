@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />  
+	<title> 订单管理 </title>
+	<link rel="stylesheet" href="#springUrl('/resources/css/zy/fixed.css')">
+	<style type="text/css">
+		
+		#middlecolumn {
+			font-family: "微软雅黑", Arial, Helvetica, sans-serif;
+			height: 100%;
+			width: 50%;
+			margin-left: 25%;
+			float: left;
+		}
+		input[type="text"],[type="date"] {
+			margin: 15px;
+		    border: none;
+		    border-bottom: 1px solid #135480;
+		    padding: 2px;
+		    font-size: 1em;
+		    color: #444;
+		    width: 200px;
+		    outline: none;
+		    text-align: center;
+		}
+		.ptitle {
+			color: #135480;
+			font-weight: bold; 
+			font-size: 16px;
+			text-align: right;
+		}
+		select {
+			margin: 15px;
+		    border: none;
+		    border-bottom: 1px solid #135480;
+		    padding: 2px;
+		    font-size: 1em;
+		    color: #444;
+		    width: 200px;
+		    outline: none;
+		    text-align: center;
+		}
+		</style>
+</head>
+<body>
+	<div id="topbar"> <h1> 订单管理 </h1> </div>
+
+	<div id="sidebar">
+		<ul>
+			<li><a href="all"> 订单列表 </a></li>
+			<li><a href=""> 精确搜索 </a></li>
+		</ul>
+	</div>
+
+	<div id="content" style="overflow: scroll;"> 
+		<div id="middlecolumn">
+			<form style="margin: 50px; margin-left:75px;display:inline-block;" action="searchresult" method="post">
+				<p class="ptitle"> 订单编号 <input type="text" name="ordersn" accept-charset="UTF-8"/> </p>
+				<p class="ptitle"> 商品名称 <input type="text" name="goodsname" accept-charset="UTF-8"/> </p>
+				<p class="ptitle"> 收货人姓名 <input type="text" name="consignee" accept-charset="UTF-8"/> </p>
+				<p class="ptitle"> 用户姓名 <input type="text" name="username" accept-charset="UTF-8"/> </p>
+				<p class="ptitle"> 用户账号 <input type="text" name="mobile" accept-charset="UTF-8"/> </p>
+				<p class="ptitle"> 起始下单时间 <input type="date" name="addtimestart"/>  </p>
+				<p class="ptitle"> 结束下单时间<input type="date" name="addtimeend"/> </p>
+				<p class="ptitle"> 订单状态
+					<select name="orderstatus"> 
+						<option value="-1"> 未选择 </option> 
+						<option value="0"> 未付款 </option> 
+						<option value="1"> 已付款 </option> 
+						<option value="2"> 定制中 </option> 
+						<option value="3"> 已发货 </option> 
+						<option value="4"> 已收货 </option>
+						<option value="5"> 取消 </option> 
+					</select> 
+				</p>
+				<p class="ptitle"> 是否加急
+					<select name="isurgency"> 
+						<option value="-1"> 未选择 </option> 
+						<option value="Y"> 是 </option> 
+						<option value="N"> 否 </option> 
+					</select> 
+				</p>
+				<input type="submit" value="搜索" 
+				style="border-radius: 2px;background-color: #135480; color: white;
+				font-size: 16px; width: 100px;padding: 5px; margin-left: 50%; outline-style: none;" />
+			</form>
+			<p></p>
+		</div>
+
+	</div>	
+</body>
+</html>

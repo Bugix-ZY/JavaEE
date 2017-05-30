@@ -1,0 +1,83 @@
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+#topbar {
+	font-family: "微软雅黑", Arial, Helvetica, sans-serif;
+	height: 100px;
+	background-color: #135480;
+	color: white;
+	text-align: center;
+	padding-top: 20px;
+}
+
+#sidebar {
+	font-family: "微软雅黑", Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	background-color: #333;
+	width: 15%;
+	float: left;
+	height: 100%;
+}
+
+#content {
+	font-family: "微软雅黑", Arial, Helvetica, sans-serif;
+	height: 100%;
+	width: 85%;
+	float: left;
+	overflow: scroll;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+li>a:link, a:visited {
+	display: block;
+	height: 30px;
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #333;
+	text-align: center;
+	padding-top: 15px;
+	padding-bottom: 5px;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+li>a:hover, a:active {
+	background-color: #111;
+	cursor: pointer;
+}
+
+div>a:link {
+	color: #135480;
+	text-decoration: none;
+}
+
+div>a:visited {
+	color: #135480;
+	text-decoration: none;
+	background-color: #FFFFFF
+}
+
+div>a:visited:hover {
+	color: #135480;
+	text-decoration: underline;
+	background-color: #FFFFFF
+}
+
+div>a:hover {
+	color: #135480;
+	text-decoration: underline;
+}
+
+div>a:active {
+	color: #135480;
+	text-decoration: underline;
+}
+

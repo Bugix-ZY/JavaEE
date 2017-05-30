@@ -1,0 +1,79 @@
+#tiles_insertTemplate({"template":"../layout/zjh/cart_template.vm"})
+	#tiles_putAttribute({"name":"title", "value": "订单详情"})#end
+	#tiles_putAttribute({"name":"body"})
+		<div id="header">
+			<div id="header-left">
+				<img src="#springUrl('/resources/images/zjh/returnPointer.png')" onclick="window.history.back();">
+			</div>
+            <div id="header-middle"> 订单详情 </div>
+		</div>
+		
+		
+		<div id="body-content" class="greylink" style="height:93%;">
+			#if ($!order.order_status == 0)
+		 		#set ($status = "未付款")
+			#elseif ($!order.order_status == 1)
+			 	#set ($status = "已付款")
+			#elseif ($!order.order_status == 2)
+			 	#set ($status = "定制中")
+			#elseif ($!order.order_status == 3)
+			 	#set ($status = "已发货")
+			#elseif ($!order.order_status == 4)
+			 	#set ($status = "已收货")
+			#elseif ($!order.order_status == 5)
+			 	#set ($status = "取消")
+			#else 
+			 	#set ($status = "unknown")
+			#end
+			<div style="margin:4% 5% 2% 5%"> 状态： $status <hr /></div>
+			<div id="consigneeinfo" style="margin:2% 5% 2% 5%">
+				<span> $!order.consignee  $!order.telephone</span> <br/>
+				<span> $!order.address </span>
+				<hr/>
+			</div>
+			<div id="goodsinfo" style="margin:2% 5% 2% 5%; width:90%;float:left;">
+				商品<br/><br/>
+				#foreach(${ordergood} in ${ordergoods})
+					#set ($fee = $!ordergood.goods_price * $!ordergood.goods_number)
+					#set ($count = ${velocityCount} - 1)
+					<div style="width:100%; float:left;margin:2% 5% 2% 5%;">
+						<div style="width:20%; float:left;"> 
+							<span> <img src="#springUrl($goodsimg.get($count))" width="50px;" height="50px;" ></span>
+						</div>
+						 <div style="width:65%; float:left; ">
+							 <span style="display:inline-block; width="100%">
+							   商品：$!ordergood.goods_name 
+							 </span>   <br /> 
+							 <span style="display:inline-block;width="45%">
+							   数量：$!ordergood.goods_number  &nbsp&nbsp&nbsp
+							 </span>	
+							 <span style="display:inline-block;width="45%">
+							   价格：¥ $!fee
+							 </span>	 
+						 </div>	
+					  </div>   
+					  <hr/>	
+				#end
+			</div>
+			<div id="orderinfo" style="margin:2% 5% 2% 5%; float:left;width:90%;">
+			<hr/>
+				订单编号：$order.order_sn <br />
+				下单时间：$date.format('yyyy-MM-dd HH:mm:ss', $order.add_time) <br />
+				商品总额：¥ $order.goods_price <br />
+				<hr />
+				<span style="display:inline-block;float:right; margin-right:5%;">
+					实际付款：
+					<span style="color:red;" >¥ $order.order_price </span><br />
+				</span> <br/> <br/> <br/>
+			</div>
+		</div>
+		
+		
+		<div id="hiddenValueDiv">
+		</div>
+	
+		
+		
+	#end
+#end
+	

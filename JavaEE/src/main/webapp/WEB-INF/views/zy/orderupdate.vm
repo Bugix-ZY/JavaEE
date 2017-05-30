@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />  
+	<link rel="stylesheet" href="#springUrl('/resources/css/zy/fixed.css')">
+	<title> 订单管理 </title>
+	<style type="text/css">
+		.otable {
+			font-family: "微软雅黑", Arial, Helvetica, sans-serif;
+			width: 95%;
+			border-collapse: collapse;
+			float: left;
+			text-align: left;
+			margin-left: 50px;
+		}
+		.otable th {
+			color: grey;
+			font-weight: normal;
+			width:180px;
+		}
+		.otable tr {
+			height: 30px;
+		}
+		.ptitle {
+			color: #135480;
+			font-weight: bold; 
+			font-size: 18px;
+			padding-left:30px;
+			position: relative;
+			margin-top: 50px;
+		}
+		title > p{
+			font-weight: bold;
+			color: #135480;
+		}
+		select {
+			margin: 15px;
+		    border: none;
+		    border-bottom: 1px solid #135480;
+		    padding: 2px;
+		    font-size: 1em;
+		    color: #444;
+		    width: 200px;
+		    outline: none;
+		    text-align: center;
+		}
+		</style>
+
+</head>
+<body>
+
+	<div id="topbar"> <h1> 订单管理 </h1> </div>
+
+	<div id="sidebar">
+		<ul>
+			<li><a href="all"> 订单列表 </a></li>
+			<li><a href="search"> 精确搜索 </a></li>
+		</ul>
+	</div>
+
+	
+	<div id="content" style="overflow: scroll;"> 
+	<p style="margin-top:30px;">
+	<a href="all" style="background-color: #135480; color: white;font-size: 18px; padding: 10px; border-radius: 4px; 
+	margin-left: 80%;"> 返回 </a>
+		
+	<p class="ptitle"> 订单基本信息 </p>
+		
+		#if ($!order.order_status == 0)
+		 	#set ($status = "未付款")
+		#elseif ($!order.order_status == 1)
+		 	#set ($status = "已付款")
+		#elseif ($!order.order_status == 2)
+		 	#set ($status = "定制中")
+		#elseif ($!order.order_status == 3)
+		 	#set ($status = "已发货")
+		#elseif ($!order.order_status == 4)
+		 	#set ($status = "已收货")
+		#elseif ($!order.order_status == 5)
+		 	#set ($status = "取消")
+		#else 
+		 	#set ($status = "unknown")
+		#end
+		#set ($fee = $!ordergood.goods_number * $!ordergood.goods_price)
+		
+		<table class="otable">
+		    <tr>
+		      	<th> 订单号 </th>
+		        <td> $!order.order_sn </td>
+		    </tr>
+		    <tr>
+		      	<th> 订单状态 </th>
+		        <td> $status </td>
+		    </tr>
+    	</table>
+
+		<p/>
+		<p class="ptitle" style="margin-top: 100px"> 商品信息 </p> 
+		<table class="otable" >
+			<tr>
+				<th> 商品名称 </th>
+			    <th> 单价 </th>
+			    <th> 数量 </th>
+			    <th> 小计 </th>
+			</tr>
+		    #foreach(${ordergood} in ${ordergoods})
+				#set ($fee = $!ordergood.goods_price * $!ordergood.goods_number)
+			    <tr>
+			    	<td> $!ordergood.goods_name</td>
+			    	<td> $!ordergood.goods_price </td>
+			    	<td> $!ordergood.goods_number </td>
+			    	<td> $!fee </td>
+			    </tr>
+			 #end
+	
+    	</table>
+    	<p/>
+    	<p class="ptitle" style="margin-top: 160px"> 收货人信息 </p> 
+		<table class="otable" >
+		    <tr>
+		      	<th> 收货人姓名 </th>
+		        <td> $!order.consignee </td>
+		    </tr>
+		    <tr>
+		      	<th> 详细地址 </th>
+		        <td> $!order.address </td>
+		    </tr>
+		    <tr>
+		      	<th> 邮政编码 </th>
+		        <td> $!order.zipcode </td>
+		    </tr>
+		    <tr>
+		      	<th> 联系方式 </th>
+		        <td> $!order.telephone </td>
+		    </tr>
+    	</table>
+
+		<p/>
+    	<p class="ptitle" style="margin-top: 160px"> 发票信息 </p> 
+		<table class="otable" >
+    	</table>
+
+		<p/>
+    	<p class="ptitle" style="margin-top: 100px"> 其他信息 </p> 
+		<table class="otable" >
+		    <tr>
+		      	<th> 配送方式 </th>
+		        <td> 邮政小包 </td>
+		    </tr>
+		    <tr>
+		      	<th> 支付方式 </th>
+		        <td> 微信支付 </td>
+		    </tr>
+		    <tr>
+		      	<th> 下单时间 </th>
+		        <td> $date.format('yyyy-MM-dd HH:mm:ss', $!order.add_time) </td>
+		    </tr>
+		    <tr>
+		      	<th> 订单备注 </th>
+		        <td> $!order.remark </td>
+		    </tr>
+		    <tr>
+		      	<th> 物流单号 </th>
+		        <td>  $!order.expressCode </td>
+		    </tr>
+    	</table>
+
+		<p/>
+    	<p class="ptitle" style="margin-top: 190px;"> 费用总计 </p>
+    	<table class="otable">
+		    <tr>
+		      	<th> 积分抵扣额 </th>
+		        <td> 0.0 元 </td>
+		    </tr>
+		    <tr>
+		      	<th> 获得的积分 </th>
+		        <td> 0 </td>
+		    </tr>
+		    <tr>
+		      	<th> 实际付款 </th>
+		        <td>  </td>
+		    </tr>
+    	</table>
+    	
+    	<p class="ptitle" style="margin-top: 190px;"> 修改备注 </p>
+    	<form action="remark" method="post"  accept-charset="UTF-8">
+    		<input type="hidden" name="order_sn" value="$order.order_sn"/>
+    		<input type="text" name="note" style="margin-left:50px; width:500px;" required/>
+    		<input type="submit" value="确认" style="font-size: 16px; background-color: #135480;color: white;" />
+    	</form>
+    	<p class="ptitle"> 修改地址 </p>
+    	<form action="address" method="post"  accept-charset="UTF-8">
+    		<input type="hidden" name="order_sn" value="$order.order_sn"/>
+    		<input type="text" name="address" style="margin-left:50px; width:500px;" required />
+    		<input type="submit" value="确认" style="font-size: 16px; background-color: #135480;color: white;" />
+    	</form>
+    	<p class="ptitle"> 修改快递单号 </p>
+    	<form action="expresscode" method="post"  accept-charset="UTF-8">
+    		<input type="hidden" name="order_sn" value="$order.order_sn"/>
+    		<input type="text" name="code" style="margin-left:50px; width:500px;" required/>
+    		<input type="submit" value="确认" style="font-size: 16px; background-color: #135480;color: white;" />
+    	</form>
+    	
+    	<p class="ptitle"> 修改订单状态 </p>
+    	<form action="status" method="post" style="margin-left:50px;font-size：16px;"> 
+			<label> 选取状态 </label> 
+			<input type="hidden" name="order_sn" value="$order.order_sn"/>
+			<select name="orderstatus"> 
+				<option value="0"> 未付款 </option> 
+				<option value="1"> 已付款 </option> 
+				<option value="2"> 定制中 </option> 
+				<option value="3"> 已发货 </option> 
+				<option value="4"> 已收货 </option>
+				<option value="5"> 取消 </option> 
+			</select> 
+			<input type="submit" value="确认" style="font-size: 16px; background-color: #135480;color: white;" />
+		</form> 
+		</p>
+		<p/>
+	</div>	
+</body>
+</html>
+
+
+

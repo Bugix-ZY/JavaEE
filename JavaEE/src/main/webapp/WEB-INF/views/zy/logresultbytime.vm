@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />  
+	<title> 日志管理 </title>
+	<link rel="stylesheet" href="#springUrl('/resources/css/zy/fixed.css')">
+	<script type="text/javascript" src="#springUrl('/resources/js/zy/logpage.js')"></script>
+	<style type="text/css">
+		form {
+			margin:20px;
+		}
+		table {
+			font-size:14px;
+		}
+		
+		#logs {
+			font-family: "微软雅黑", Arial, Helvetica, sans-serif;
+			width: 99%;
+			border-collapse: collapse;
+			font-size:15px;
+		}
+		
+		#logs td, #logs th {
+			font-size: 1em;
+			border-bottom: 1px solid #333;
+			padding: 3px 7px 2px 7px;
+			height: 35px;
+		}
+		
+		#logs th {
+			font-size: 1.1em;
+			text-align: left;
+			padding-top: 5px;
+			padding-bottom: 4px;
+			background-color: white;
+			color: #135480;
+		}
+		
+		#logs tr {
+			height: 50px;
+		}
+	</style>
+</head>
+<body onLoad="goPage(1,10, $logs.size());">
+	<div id="topbar"> <h1> Archive Logging </h1> </div>
+
+	<div id="sidebar">
+		<ul>
+			<li><a href="all"> 日志列表 </a></li>
+			<li><a href="time"> 精确搜索 </a></li>
+		</ul>
+	</div>
+
+	<div id="content" style="overflow: scroll;"> 
+		<timelog> 
+			<form style = "margin:20px;" action="result" method="post">
+				开始日期：<input type="date" name="start">
+				结束日期：<input type="date" name="end">
+				<button type="submit" value="查询" class="left">查询</button>
+			</form>
+		</timelog>
+		 <table style="font-size:16px;color:#135480">
+				    <th style="width:5%"> 操作者 ID </th>
+					<th style="width:15%"> 操作时间 </th>
+					<th style="width:10%"> 操作类名 </th>
+					<th style="width:15%"> 操作方法 </th>
+					<th style="width:20%"> 操作参数 </th>
+					<th style="width:10%"> 操作结果 </th>
+					<th style="width:10%"> IP 地址 </th>
+		  </table>
+		<table id="logs" style="margin:5px">
+	 		#foreach(${log} in ${logs})
+		 		#set ($res="unknown")
+		 		#if (${log.result} == 1)
+		 			#set ($res = "成功")
+		 		#else 
+		 			#set ($res = "失败")
+		 		#end
+		   		<tr>
+			       	<td style="width:5%">${log.admin_id}</td>
+			       	<td style="width:15%">$date.format('yyyy-MM-dd HH:mm:ss', $log.op_time) </td>
+			        <td style="width:10%;">${log.op_object}</td>
+			        <td style="width:15%">${log.op_method}</td>
+			        <td style="width:20%">${log.op_content}</td>
+			        <td style="width:7%">$res </td>
+			        <td style="width:10%">${log.ip_address}</td>
+		     	</tr>
+	     	#end
+	     </table>
+	     <hr />
+	    <table style="margin-left:30%">
+        	<tr><td><div id="barcon" name="barcon"></div></td></tr>
+    	</table>
+	</div>	
+
+</body>
+</html>

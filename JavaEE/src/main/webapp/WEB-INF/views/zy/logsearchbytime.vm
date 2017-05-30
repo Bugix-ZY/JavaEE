@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />  
+	<title> 日志管理 </title>
+	<link rel="stylesheet" href="#springUrl('/resources/css/zy/fixed.css')">
+	<style type="text/css">
+		form {
+			margin:20px;
+		}
+	</style>
+</head>
+<body>
+	<div id="topbar"> <h1> Archive Logging </h1> </div>
+
+	<div id="sidebar">
+		<ul>
+			<li><a href="all"> 日志列表 </a></li>
+			<li><a href="time"> 精确搜索 </a></li>
+		</ul>
+	</div>
+
+	<div id="content" style="overflow: scroll;"> 
+		<timelog> 
+			<form action="result" method="post">
+				开始日期：<input type="date" name="start">
+				结束日期：<input type="date" name="end">
+				<button type="submit" value="查询" class="left">查询</button>
+			</form>
+		</timelog>
+	</div>	
+
+</body>
+</html>

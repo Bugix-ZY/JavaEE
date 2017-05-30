@@ -1,0 +1,87 @@
+#tiles_insertTemplate({"template":"../layout/zjh/cart_template.vm"})
+	#tiles_putAttribute({"name":"title", "value": "用户主页"})#end
+	#tiles_putAttribute({"name":"body"})
+		<div id="header">
+			<div id="header-left">
+				<img src="#springUrl('/resources/images/zjh/returnPointer.png')" onclick="window.history.back();">
+			</div>
+            <div id="header-middle"> 我的主页 </div>
+		</div>
+		
+		<div id="body-content" class="greylink">
+			<div style="height:30%;" > 
+				<img src="#springUrl('/resources/images/zy/1.jpeg')" class="aligncenter" />
+				<p id="username" style="text-align: center;"> username</p>
+			</div>
+			<hr/>
+			
+			<div style="height:30%;">
+				<div id="allorder" style="margin-top: 5px; margin-left:15px;">
+					<span style="font-size: 1em; "> 我的订单 </span>
+					<span style="">
+						<a href="#springUrl('/user/order/all')" style="float: right; margin-right: 10px;"> 查看所有订单 > </a>
+					</span>
+				</div>
+				<hr/>
+				<div id="details" style="font-size: 1em; ">
+					<span id="1" style="display:inline-block;width: 22%; margin-left: 7%;"> 
+						<a href="#springUrl('/user/order/unpaid')"><img  src="#springUrl('/resources/images/zy/wallet.png')" width="50%;"/></a>
+						<a href="#springUrl('/user/order/unpaid')" style="float: left;  "> 待付款</a>
+					</span>
+					<span id="2" style="display:inline-block;width: 22%;"> 
+						<a href="#springUrl('/user/order/wait')"><img src="#springUrl('/resources/images/zy/truck.png')" width="50%;"/></a>
+						<a href="#springUrl('/user/order/wait')" style="float: left; "> 待收货</a>
+					</span>
+					<span id="3" style="display:inline-block;width: 22%;"> 
+						<a href="#springUrl('/user/order/completed')"><img src="#springUrl('/resources/images/zy/yes.png')" width="50%;"/></a>
+						<a href="#springUrl('/user/order/completed')" style="float: left; "> 已收货</a>
+					</span>
+					<span id="4" style="display:inline-block;width: 22%;"> 
+						<a href="#springUrl('/user/order/canceled')"><img src="#springUrl('/resources/images/zy/cancel.png')" width="50%;"></a>
+						<a href="#springUrl('/user/order/canceled')" style="float: left;"> 已取消 </a>
+					</span>
+				</div>
+				<hr/>
+			</div>
+			
+			
+			<div style="height:25%;">
+				<a href=""  style="float:left; width: 100%">
+					<span id="collection" style="float:left;display:inline-block; line-height: 30px; width: 100%; font-size:1em;border-bottom: 1px solid #EBEBEB"> 
+						<img src="#springUrl('/resources/images/zy/star.png')" style="height: 15px;  margin-left: 5px;" />
+						<span style="margin-left: 5px; text-align: center;">我的收藏 >> </span>
+					</span>
+				</a>
+			
+				<a href="" style="float:left; width: 100%">
+					<span id="collection" style="float:left;display:inline-block; line-height: 30px; width: 100%; font-size:1em;border-bottom: 1px solid #EBEBEB"> 
+						<img src="#springUrl('/resources/images/zy/address.png')" style="height: 15px;  margin-left: 5px;" />
+						<span style="margin-left: 5px; text-align: center;">收货地址 >> </span>
+					</span>
+				</a>
+				
+				<a href="" style="float:left; width: 100%">
+					<span id="collection" style="float:left;display:inline-block; line-height: 30px; width: 100%; font-size:1em;border-bottom: 1px solid #EBEBEB"> 
+						<img src="#springUrl('/resources/images/zy/user.png')"" style="height: 15px;  margin-left: 5px;" />
+						<span style="margin-left: 5px; text-align: center;">用户信息 >> </span>
+					</span>
+				</a>
+			</div>
+		</div>
+		
+		
+		<div id="hiddenValueDiv">
+		</div>
+	
+		<div id="footer">
+			<div><a href="#springUrl('')"><img src="#springUrl('/resources/images/zjh/index-footer-1.png')" /><br/>首页</a></div>
+			<div><a href="javascript:void(0)"><img src="#springUrl('/resources/images/zjh/index-footer-2.png')" /><br/>分类</a></div>
+			<div><a href="javascript:void(0)"><img src="#springUrl('/resources/images/zjh/index-footer-3.png')" /><br/>觅Me</a></div>
+			<div><a href="#springUrl('/cart/index')"><img src="#springUrl('/resources/images/zjh/index-footer-4.png')" /><br/>购物车</a></div>
+			<div><a href="#springUrl('/user/home')"><img src="#springUrl('/resources/images/zjh/index-footer-5.png')" /><br/>我的</a></div>
+		</div>
+		
+		
+	#end
+#end
+	
