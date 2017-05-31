@@ -18,7 +18,6 @@ import xmu.mall.usercenter.zy.model.User;
 import xmu.mall.usercenter.zy.service.IUserService;
 import xmu.mystore.goodsmgt.zlt.model.Goods;
 import xmu.mystore.goodsmgt.zlt.service.GoodsMgtService;
-import xmu.mystore.goodsmgt.zlt.service.GoodsService;
 import xmu.mystore.ordersmgt.zy.model.Order;
 import xmu.mystore.ordersmgt.zy.model.OrderGoods;
 import xmu.mystore.ordersmgt.zy.service.IOrderGoodsService;
