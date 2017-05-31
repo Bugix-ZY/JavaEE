@@ -270,7 +270,7 @@ function getMoreGoodsListByAjax(page)
 
 function addGoodItemDivToHtml(springUrl,data)
 {
-	var hrefGoodsSerialCode=springUrl+"/index/goodsDetail/"+data.serial_code;
+	var hrefGoodsSerialCode=springUrl+"/index/goodsDetail/"+data.id;
 	var goodsPicPath=springUrl+data.image_path;
 	
 	var goodsItemContent=$("<div id='goods-item-content'></div>");

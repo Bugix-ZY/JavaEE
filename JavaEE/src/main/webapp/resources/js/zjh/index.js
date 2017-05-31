@@ -130,7 +130,7 @@ function addGoodItemDivToHtml(springUrl,data)
 	var goodsItemDiv=$("<div id='goods-item-div'></div>");
 	
 	//商品链接绝对路径
-	var hrefString=springUrl+"/index/goodsDetail/"+data.serial_code;
+	var hrefString=springUrl+"/index/goodsDetail/"+data.id;
 	//商品图片绝对路径
 	var goodsPicPath=springUrl+data.image_path;
 	

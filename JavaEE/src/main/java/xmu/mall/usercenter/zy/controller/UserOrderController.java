@@ -25,7 +25,7 @@ import xmu.mystore.ordersmgt.zy.service.IOrderGoodsService;
 import xmu.mystore.ordersmgt.zy.service.IOrderService;
 
 @Controller
-@RequestMapping(value="/user")
+@RequestMapping(value="/user/order")
 public class UserOrderController {
 	@Autowired
 	@Qualifier("orderService")
@@ -43,13 +43,9 @@ public class UserOrderController {
 	@Qualifier("GoodsMgtService")
 	private GoodsMgtService goodsMgtService;
 	
-	@RequestMapping(value="home", method=RequestMethod.GET)
-	public String toHome(){
-		return "zy/userhome";
-	}
 	
 	/* 显示该用户全部订单记录*/
-	@RequestMapping(value="/order/all", method=RequestMethod.GET)
+	@RequestMapping(value="/all", method=RequestMethod.GET)
 	public String showAllOrder(Model model, HttpSession session)
 	{
 		Long userid=Long.valueOf(session.getAttribute("userId").toString());
@@ -70,7 +66,7 @@ public class UserOrderController {
 	}
 	
 	/* 显示该用户全部 "未付款" 订单记录*/
-	@RequestMapping(value="/order/unpaid", method=RequestMethod.GET)
+	@RequestMapping(value="/unpaid", method=RequestMethod.GET)
 	public String showAllUnpaidOrder(Model model, HttpSession session)
 	{
 		Long userid=Long.valueOf(session.getAttribute("userId").toString());
@@ -90,7 +86,7 @@ public class UserOrderController {
 	}
 	
 	/* 显示该用户全部 "待收货" 订单记录*/
-	@RequestMapping(value="/order/wait", method=RequestMethod.GET)
+	@RequestMapping(value="/wait", method=RequestMethod.GET)
 	public String showAllShippingOrder(Model model, HttpSession session)
 	{
 		Long userid=Long.valueOf(session.getAttribute("userId").toString());
@@ -110,7 +106,7 @@ public class UserOrderController {
 	}
 	
 	/* 显示该用户全部 "已完成" 订单记录*/
-	@RequestMapping(value="/order/completed", method=RequestMethod.GET)
+	@RequestMapping(value="/completed", method=RequestMethod.GET)
 	public String showAllCompletedOrder(Model model, HttpSession session)
 	{
 		Long userid=Long.valueOf(session.getAttribute("userId").toString());
@@ -130,7 +126,7 @@ public class UserOrderController {
 	}
 	
 	/* 显示该用户全部 "已取消" 订单记录*/
-	@RequestMapping(value="/order/canceled", method=RequestMethod.GET)
+	@RequestMapping(value="/canceled", method=RequestMethod.GET)
 	public String showAllCanceledOrder(Model model, HttpSession session)
 	{
 		Long userid=Long.valueOf(session.getAttribute("userId").toString());
@@ -150,7 +146,7 @@ public class UserOrderController {
 	}
 	
 	/* 查看订单详情 */
-	@RequestMapping(value="/order/details",method=RequestMethod.GET)
+	@RequestMapping(value="/details",method=RequestMethod.GET)
 	public String showOrderDetails(@RequestParam(name="order_sn")String sn, Model model, HttpSession session)
 	{
 		Long userid=Long.valueOf(session.getAttribute("userId").toString());

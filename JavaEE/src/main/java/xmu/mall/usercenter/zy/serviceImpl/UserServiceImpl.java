@@ -26,5 +26,8 @@ public class UserServiceImpl implements IUserService
 	public User getUserByUsername(String name) {
 		return this.userMapper.getUserByUsername(name);
 	}
+	public void updateUsername(long userid, String username) {
+		this.userMapper.updateUsername(userid, username);
+	}
 
 }

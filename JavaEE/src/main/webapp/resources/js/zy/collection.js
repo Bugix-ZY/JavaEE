@@ -13,7 +13,6 @@ function addCollection() {
 					goodsId : $("#hiddenGoodsId").val(),
 				},
 				success : function(data) {
-					alert(data.message);
 					if (data.code == "200") {
 						location.reload();
 					}
@@ -32,7 +31,6 @@ function addCollection() {
 						goodsId : $("#hiddenGoodsId").val(),
 					},
 					success : function(data) {
-						alert(data.message);
 						if (data.code == "200") {
 							location.reload();
 						}
@@ -41,7 +39,23 @@ function addCollection() {
 		}
 }
 
+function deleteCollection(goodsId) {
+	var springUrl = $("#hiddenSpringUrl").val();
+	$.ajax({
+		url : springUrl + "/user/collection/delete",
+		async : false,
+		cache : false,
+		type : 'post',
+		dataType : "json",
+		data : {
+			goodsId : goodsId
+		},
+		success : function(data) {
 
+		}
+	});
+	window.location.reload();
+}
 
 	
 

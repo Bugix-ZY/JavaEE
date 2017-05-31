@@ -11,7 +11,7 @@
 		<div id="body-content" class="greylink">
 			<div style="height:30%;" > 
 				<img src="#springUrl('/resources/images/zy/1.jpeg')" class="aligncenter" />
-				<p id="username" style="text-align: center;"> username</p>
+				<p id="username" style="text-align: center;"> </p>
 			</div>
 			<hr/>
 			
@@ -46,21 +46,21 @@
 			
 			
 			<div style="height:25%;">
-				<a href=""  style="float:left; width: 100%">
+				<a href="#springUrl('/user/collection/all')"  style="float:left; width: 100%">
 					<span id="collection" style="float:left;display:inline-block; line-height: 30px; width: 100%; font-size:1em;border-bottom: 1px solid #EBEBEB"> 
 						<img src="#springUrl('/resources/images/zy/star.png')" style="height: 15px;  margin-left: 5px;" />
 						<span style="margin-left: 5px; text-align: center;">我的收藏 >> </span>
 					</span>
 				</a>
 			
-				<a href="" style="float:left; width: 100%">
+				<a href="#springUrl('/user/address/all')" style="float:left; width: 100%">
 					<span id="collection" style="float:left;display:inline-block; line-height: 30px; width: 100%; font-size:1em;border-bottom: 1px solid #EBEBEB"> 
 						<img src="#springUrl('/resources/images/zy/address.png')" style="height: 15px;  margin-left: 5px;" />
 						<span style="margin-left: 5px; text-align: center;">收货地址 >> </span>
 					</span>
 				</a>
 				
-				<a href="" style="float:left; width: 100%">
+				<a href="#springUrl('/user/info')" style="float:left; width: 100%">
 					<span id="collection" style="float:left;display:inline-block; line-height: 30px; width: 100%; font-size:1em;border-bottom: 1px solid #EBEBEB"> 
 						<img src="#springUrl('/resources/images/zy/user.png')"" style="height: 15px;  margin-left: 5px;" />
 						<span style="margin-left: 5px; text-align: center;">用户信息 >> </span>

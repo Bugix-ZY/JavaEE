@@ -13,4 +13,19 @@
         SELECT user_id FROM Users 
         WHERE user_name = #{user_name}
     </select>
+    
+    <update id="updateOrderShipTime" parameterType="xmu.mystore.ordersmgt.zy.model.Order">
+		UPDATE Order_info
+		SET
+		shipped_time = #{shipped_time}
+		WHERE order_sn = #{order_sn}
+	</update>
+    <!-- 更新昵称 -->
+     <update id="updateUsername">
+		UPDATE Users
+		SET
+		user_name = #{user_name}
+		WHERE user_id = #{user_id}
+	</update>
+    <!-- 更新图片地址 -->
 </mapper>

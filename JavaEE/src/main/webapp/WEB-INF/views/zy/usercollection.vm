@@ -8,10 +8,33 @@
             <div id="header-middle"> 我的收藏 </div>
 		</div>
 		
-		<div id="body-content" class="greylink" style="height:93%">
-			<div> 
-				收藏内容
-			</div>
+		<div id="body-content" class="greylink" style="height:93.6%">
+			 <div id="goods-list-content" style="width:90%; float:left;margin:2% 5% 2% 5%;">
+            	#if($collections)
+	            	#foreach($goods in $collections)
+	            	 #set($hrefGoodsSerialCode="/index/goodsDetail/"+$goods.id)
+		                <div id="goods-item-div" style="width:100%; float:left; margin-bottom:5%; background-color:#F5F5F5;">
+		                	<input type="hidden" id="hiddenGoodsId" value="${goods.id}"></input>
+		               		<a href="#springUrl($hrefGoodsSerialCode)">
+								<div style="width:30%; float:left;"> 
+									<span> <img src="#springUrl($goods.image_path)" width="100px;" height="100px;" ></span>
+								</div>
+							 	<div style="width:60%; float:right; ">
+								 	<span style="display:inline-block; width="100%">
+								   	商品：$!goods.name
+								 	</span>   <br /> 
+								 <span style="display:inline-block;width="45%">
+								   价格：¥ $!goods.market_price
+								 </span>	 
+							 	</div>	
+						 	</a>
+						 	<button onclick="deleteCollection(${goods.id})" class="red" style="float:right; margin-right:5%;"> 移除 </button>
+					 	 </div>  
+		            #end   
+                #end
+            </div>
+            <div style="text-align:center;"> -已经到底了- </div>
+            <br/>
 		</div>
 		
 		
