@@ -35,9 +35,9 @@ public class MybatisConfig
 	{
 		DruidDataSource druidDataSource=new DruidDataSource();
 		druidDataSource.setDriverClassName("com.mysql.jdbc.Driver");
-		druidDataSource.setUrl("jdbc:mysql://localhost:3306/JavaEE?useUnicode=true&characterEncoding=UTF-8");
-		druidDataSource.setUsername("root");
-		druidDataSource.setPassword("02100101");
+		druidDataSource.setUrl("jdbc:mysql://120.77.173.98:3306/j2ee?useUnicode=true&characterEncoding=UTF-8");
+		druidDataSource.setUsername("j2ee");
+		druidDataSource.setPassword("mingqiu@xmu.edu.cn");
         //初始化连接大小 
         druidDataSource.setInitialSize(0);
         //连接池最大使用连接数量 

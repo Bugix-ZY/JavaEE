@@ -13,7 +13,7 @@ import xmu.mystore.goodsmgt.zlt.model.Stand;
 import xmu.mystore.goodsmgt.zlt.service.StandService;
 
 @Controller
-@RequestMapping(value = "Stand")
+@RequestMapping(value = "/Stand")
 public class StandController {
 
 	@RequestMapping(method = RequestMethod.GET)

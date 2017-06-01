@@ -31,7 +31,7 @@ public class LogController {
 	{
 		List<Log> logs = logService.getAllLog();
 		model.addAttribute("logs",logs); 
-		return "logall";
+		return "zy/logall";
 	}
 	
 	/* 根据时间查询日志记录 */
@@ -57,13 +57,13 @@ public class LogController {
 			
 		}		
 	    model.addAttribute("logs", logs);
-		return "logresultbytime";
+		return "zy/logresultbytime";
 	}
 	
 	/* 跳转至精准查询页面 */
 	@RequestMapping(value="time",method=RequestMethod.GET)
 	public String search(Model model)
 	{
-		return "logsearchbytime";
+		return "zy/logsearchbytime";
 	}
 }

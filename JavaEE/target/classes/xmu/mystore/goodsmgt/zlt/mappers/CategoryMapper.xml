@@ -12,17 +12,17 @@
 
 	<insert id="add" parameterType="xmu.mystore.goodsmgt.zlt.model.Category">
 		insert into
-		category(name,upper_category_id,rank,type,priority)
+		142550_category(name,upper_category_id,rank,type,priority)
 		values(#{name},#{upper_category_id},#{rank},#{type},#{priority})
 	</insert>
 
 	<delete id="delete" parameterType="xmu.mystore.goodsmgt.zlt.model.Category">
-		delete from category where
+		delete from 142550_category where
 		id=#{id}
 	</delete>
 
 	<update id="update" parameterType="xmu.mystore.goodsmgt.zlt.model.Category">
-		update category
+		update 142550_category
 		set
 		name=#{name},
 		upper_category_id=#{upper_category_id},
@@ -35,11 +35,11 @@
 
 	<select id="select" resultMap="CategoryResult"
 		parameterType="xmu.mystore.goodsmgt.zlt.model.Category">
-		SELECT * FROM Category WHERE ID= #{id}
+		SELECT * FROM 142550_category WHERE ID= #{id}
 	</select>
 
 	<select id="selectAll" resultMap="CategoryResult" >
-	SELECT * FROM category WHERE type=1 ORDER BY priority
+	SELECT * FROM 142550_category WHERE type=1 ORDER BY priority
 		<!-- <choose>
 			<when test="isShowable">
 				SELECT * FROM category WHERE type=1 ORDER BY priority

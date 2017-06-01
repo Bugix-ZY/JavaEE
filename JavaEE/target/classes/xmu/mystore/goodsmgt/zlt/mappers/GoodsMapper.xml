@@ -25,7 +25,7 @@
 
 	<insert id="add" parameterType="xmu.mystore.goodsmgt.zlt.model.Goods">
 		insert into
-		goods(name,upper_goods_id,rank,type,priority)
+		142550_goods(name,upper_goods_id,rank,type,priority)
 		values(#{name},#{serial_code},
 		#{weight},#{stock_count},#{pre_sale_number},
 		#{store_id},#{mid_user_price},#{market_price},
@@ -36,12 +36,12 @@
 	</insert>
 
 	<delete id="delete" parameterType="xmu.mystore.goodsmgt.zlt.model.Goods">
-		delete from goods where
+		delete from 142550_goods where
 		id=#{id}
 	</delete>
 
 	<update id="update" parameterType="xmu.mystore.goodsmgt.zlt.model.Goods">
-		update goods
+		update 142550_goods
 		set
 		name=#{name},
 		serial_code=#{serial_code},
@@ -68,90 +68,90 @@
 
 	<select id="select" resultMap="GoodsResult"
 		parameterType="xmu.mystore.goodsmgt.zlt.model.Goods">
-		SELECT * FROM Goods WHERE id= #{id}
+		SELECT * FROM 142550_goods WHERE id= #{id}
 	</select>
 
 	<select id="selectAll" resultMap="GoodsResult">
-		SELECT * FROM Goods
+		SELECT * FROM 142550_goods
 	</select>
 
 	<select id="selectBySerialCode" resultMap="GoodsResult"
 		parameterType="xmu.mystore.goodsmgt.zlt.model.Goods">
-		SELECT * FROM Goods WHERE serial_code=
+		SELECT * FROM 142550_goods WHERE serial_code=
 		#{serial_code}
 	</select>
 
 	<select id="selectByName" resultMap="GoodsResult"
 		parameterType="xmu.mystore.goodsmgt.zlt.model.Goods">
-		SELECT * FROM Goods WHERE name LIKE '%#{name}%'
+		SELECT * FROM 142550_goods WHERE name LIKE '%#{name}%'
 	</select>
 
 	<select id="selectByBrand" resultMap="GoodsResult"
 		parameterType="xmu.mystore.goodsmgt.zlt.model.Goods">
-		SELECT * FROM Goods WHERE brand= #{brand}
+		SELECT * FROM 142550_goods WHERE brand= #{brand}
 	</select>
 
 	<select id="selectByCategory" resultMap="GoodsResult"
 		parameterType="xmu.mystore.goodsmgt.zlt.model.Goods">
-		SELECT * FROM Goods WHERE category_id=
+		SELECT * FROM 142550_goods WHERE category_id=
 		#{category_id}
 	</select>
 
 	<select id="selectByBrandAndCategory" resultMap="GoodsResult"
 		parameterType="xmu.mystore.goodsmgt.zlt.model.Goods">
-		SELECT * FROM Goods WHERE brand= #{brand} and
+		SELECT * FROM 142550_goods WHERE brand= #{brand} and
 		category_id= #{category_id}
 	</select>
 
 	<select id="selectByPage" resultMap="GoodsResult">
-		SELECT * FROM Goods limit
+		SELECT * FROM 142550_goods limit
 		(pageNumber-1)*pageSize,pageSize
 	</select>
 
 	<select id="selectBy" resultMap="GoodsResult" parameterType="xmu.mystore.goodsmgt.zlt.model.SelectParameters">
 		SELECT 
-		Goods.id as id,
-		Goods.name as name,
-		Goods.serial_code as serial_code,
-		Goods.stock_count as stock_count,
-		Goods.redeem_point as redeem_point,
-		Goods.image_path as image_path,
-		Goods.description as description,
-		Stand.pre_sale_count as pre_sale_number,
-		Stand.real_price as real_price,
-		Stand.market_price as market_price,
-		Stand.mid_user_price as mid_user_price
-		FROM Goods,Stand
+		142550_goods.id as id,
+		142550_goods.name as name,
+		142550_goods.serial_code as serial_code,
+		142550_goods.stock_count as stock_count,
+		142550_goods.redeem_point as redeem_point,
+		142550_goods.image_path as image_path,
+		142550_goods.description as description,
+		142550_stand.pre_sale_count as pre_sale_number,
+		142550_stand.real_price as real_price,
+		142550_stand.market_price as market_price,
+		142550_stand.mid_user_price as mid_user_price
+		FROM 142550_goods,142550_stand
 		WHERE
-		Goods.id=Stand.goods_id AND
-		Stand.on_market_time &lt;= now() AND
-		Stand.off_market_time &gt;= now() 
+		142550_goods.id=142550_stand.goods_id AND
+		142550_stand.on_market_time &lt;= now() AND
+		142550_stand.off_market_time &gt;= now() 
 		<if test=" name != null">
-			AND	Goods.name like '${'%'+name+'%'}' 
+			AND	142550_goods.name like '${'%'+name+'%'}' 
 		</if>
 		<if test="brand_id != null">
-			AND	brand_id=#{brand_id}
+			AND	142550_brand_id=#{brand_id}
 		</if>
 		<if test="category_id != null">
-			AND category_id=#{category_id}
+			AND 142550_category_id=#{category_id}
 		</if>
 		<if test="real_price != null">
 			<choose>
 				<when test="real_price == 0">
-					ORDER BY Stand.real_price DESC
+					ORDER BY 142550_stand.real_price DESC
 				</when>
 				<when test="real_price == 1">
-					ORDER BY Stand.real_price ASC
+					ORDER BY 142550_stand.real_price ASC
 				</when>
 			</choose>
 		</if>
 		<if test="pre_sale_number != null">
 			<choose>
 				<when test="pre_sale_number == 0">
-					ORDER BY Stand.pre_sale_count DESC
+					ORDER BY 142550_stand.pre_sale_count DESC
 				</when>
 				<when test="pre_sale_number == 1">
-					ORDER BY Stand.pre_sale_count ASC
+					ORDER BY 142550_stand.pre_sale_count ASC
 				</when>
 			</choose>
 		</if>

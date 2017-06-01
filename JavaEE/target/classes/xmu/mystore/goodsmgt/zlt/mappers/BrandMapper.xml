@@ -11,18 +11,18 @@
 
 	<insert id="add" parameterType="xmu.mystore.goodsmgt.zlt.model.Brand">
 		insert into
-		brand(name,website,description,type)
+		142550_brand(name,website,description,type)
 		values(#{name},#{website},#{description},#{type})
 	</insert>
 
 	<delete id="delete" parameterType="xmu.mystore.goodsmgt.zlt.model.Brand">
 		delete from
-		brand where
+		142550_brand where
 		id=#{id}
 	</delete>
 
 	<update id="update" parameterType="xmu.mystore.goodsmgt.zlt.model.Brand">
-		update brand
+		update 142550_brand
 		set
 		name=#{name},
 		website=#{website},
@@ -33,16 +33,16 @@
 	</update>
 
 	<select id="select" resultMap="BrandResult" parameterType="xmu.mystore.goodsmgt.zlt.model.Brand">
-		SELECT * FROM Brand WHERE ID= #{id}
+		SELECT * FROM 142550_brand WHERE ID= #{id}
 	</select>
 
 	<select id="selectAll" resultMap="BrandResult" >
 		<choose>
 			<when test="isShowable">
-				SELECT * FROM brand WHERE type=1
+				SELECT * FROM 142550_brand WHERE type=1
 			</when>
 			<otherwise>
-				SELECT * FROM Brand
+				SELECT * FROM 142550_brand
 			</otherwise>
 		</choose>
 	</select> 

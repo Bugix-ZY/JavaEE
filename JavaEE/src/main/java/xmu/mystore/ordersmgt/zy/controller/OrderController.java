@@ -58,7 +58,7 @@ public class OrderController {
 		model.addAttribute("orders",orders);  			// list
 		model.addAttribute("ordergoods",ordergoods); 	// hashmap
 		model.addAttribute("users",users); 				// list
-		return "orderall";
+		return "zy/orderall";
 	}
 	
 	
@@ -72,7 +72,7 @@ public class OrderController {
 		model.addAttribute("order",order); 
 		model.addAttribute("ordergoods",ordergoods); 
 		model.addAttribute("user",user); 
-		return "orderdetails";
+		return "zy/orderdetails";
 	}
 
 	
@@ -96,7 +96,7 @@ public class OrderController {
 		model.addAttribute("orders",orders);  			// list
 		model.addAttribute("ordergoods",ordergoods); 	// hashmap
 		model.addAttribute("users",users); 				// list
-		return "orderall";
+		return "zy/orderall";
 	}
 	
 	/* 确认修改订单快递单号后 (发货)  */
@@ -115,7 +115,7 @@ public class OrderController {
 		model.addAttribute("ordergoods",ordergoods); 
 		model.addAttribute("user",user); 
 		
-		return "orderdetails";
+		return "zy/orderdetails";
 	}
 	
 	
@@ -132,7 +132,7 @@ public class OrderController {
 		model.addAttribute("ordergoods",ordergoods); 
 		model.addAttribute("user",user); 
 		
-		return "orderdeliver";
+		return "zy/orderdeliver";
 	}	
 	
 	/* 跳转至修改订单详情 */
@@ -145,7 +145,7 @@ public class OrderController {
 		model.addAttribute("order",order); 
 		model.addAttribute("ordergoods",ordergoods); 
 		model.addAttribute("user",user); 
-		return "orderupdate";
+		return "zy/orderupdate";
 	}
 	
 	/* 确认修改订单备注后  */
@@ -163,7 +163,7 @@ public class OrderController {
 		model.addAttribute("ordergoods",ordergoods); 
 		model.addAttribute("user",user); 
 		
-		return "orderupdate";
+		return "zy/orderupdate";
 	}
 	
 	/* 确认修改订单地址后  */
@@ -181,7 +181,7 @@ public class OrderController {
 		model.addAttribute("ordergoods",ordergoods); 
 		model.addAttribute("user",user); 
 		
-		return "orderupdate";
+		return "zy/orderupdate";
 	}
 	
 	/* 确认修改订单快递单号后  */
@@ -199,7 +199,7 @@ public class OrderController {
 		model.addAttribute("ordergoods",ordergoods); 
 		model.addAttribute("user",user); 
 		
-		return "orderupdate";
+		return "zy/orderupdate";
 	}
 	
 	/* 确认修改订单状态后  */
@@ -217,7 +217,7 @@ public class OrderController {
 		model.addAttribute("ordergoods",ordergoods); 
 		model.addAttribute("user",user); 
 		
-		return "orderupdate";
+		return "zy/orderupdate";
 	}
 
 
@@ -225,7 +225,7 @@ public class OrderController {
 	@RequestMapping(value="search",method=RequestMethod.GET)
 	public String searchPage(Model model)
 	{
-		return "ordersearch";
+		return "zy/ordersearch";
 	}
 
 	/* 跳转至搜索结果页面  */
@@ -250,7 +250,7 @@ public class OrderController {
 		model.addAttribute("orders",orders);  			// list
 		model.addAttribute("ordergoods",ordergoods); 	// hashmap
 		model.addAttribute("users",users); 				// list
-		return "ordersearchresult";
+		return "zy/ordersearchresult";
 	}
 
 }

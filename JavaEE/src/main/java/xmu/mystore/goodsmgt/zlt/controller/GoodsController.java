@@ -17,7 +17,7 @@ import xmu.mystore.goodsmgt.zlt.service.CategoryService;
 import xmu.mystore.goodsmgt.zlt.service.GoodsService;
 
 @Controller
-@RequestMapping(value = "Goods")
+@RequestMapping(value = "/Goods")
 public class GoodsController {
 
 	@RequestMapping(method = RequestMethod.GET)

@@ -4,18 +4,18 @@
 <mapper namespace="xmu.mystore.logmgt.zy.mappers.ILogMapper">
 	<!-- 查询所有日志 -->
 	<select id="getAllLog" resultType="xmu.mystore.logmgt.zy.model.Log">
-		SELECT * FROM Log_info
+		SELECT * FROM 142550_log_info
 	</select>
 	
 	<!-- 根据时间范围查找日志 -->
 	<select id="getLogByTime" resultType="xmu.mystore.logmgt.zy.model.Log">
-		SELECT * FROM Log_info
+		SELECT * FROM 142550_log_info
 		WHERE op_time BETWEEN #{start} AND #{end}
 	</select>
 	
 	<!-- 新增 -->
 	<insert id="addLog" parameterType="xmu.mystore.logmgt.zy.model.Log">
-		INSERT INTO Log_info(admin_id, op_time, op_object, op_method, op_content, result, ip_address)
+		INSERT INTO 142550_log_info(admin_id, op_time, op_object, op_method, op_content, result, ip_address)
 		VALUES (#{admin_id},#{op_time},#{op_object},#{op_method}, #{op_content},#{result}, #{ip_address})
 	</insert>
 </mapper>

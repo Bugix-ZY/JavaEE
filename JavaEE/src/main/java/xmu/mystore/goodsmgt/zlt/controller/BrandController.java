@@ -13,7 +13,7 @@ import xmu.mystore.goodsmgt.zlt.model.Brand;
 import xmu.mystore.goodsmgt.zlt.service.BrandService;
 
 @Controller
-@RequestMapping(value = "Brand")
+@RequestMapping(value = "/Brand")
 public class BrandController {
 
 	@RequestMapping(method = RequestMethod.GET)

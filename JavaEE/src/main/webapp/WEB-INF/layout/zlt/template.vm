@@ -38,10 +38,10 @@
 		<div class="mdl-layout__drawer">
 			<span class="mdl-layout-title">商品管理</span>
 			<nav class="mdl-navigation">
-				<a class="mdl-navigation__link" href="/myStore/Brand">品牌管理</a>
-				<a class="mdl-navigation__link" href="/myStore/Category">品类管理</a>
-				<a class="mdl-navigation__link" href="/myStore/Goods">商品管理</a>
-				<a class="mdl-navigation__link" href="/myStore/Stand">上下架管理</a>
+				<a class="mdl-navigation__link" href="/JavaEE/Brand">品牌管理</a>
+				<a class="mdl-navigation__link" href="/JavaEE/Category">品类管理</a>
+				<a class="mdl-navigation__link" href="/JavaEE/Goods">商品管理</a>
+				<a class="mdl-navigation__link" href="/JavaEE/Stand">上下架管理</a>
 			</nav>
 		</div>
 		<main class="mdl-layout__content">

@@ -13,7 +13,7 @@ import xmu.mystore.goodsmgt.zlt.model.Category;
 import xmu.mystore.goodsmgt.zlt.service.CategoryService;
 
 @Controller
-@RequestMapping(value = "Category")
+@RequestMapping(value = "/Category")
 public class CategoryController {
 
 	@RequestMapping(method = RequestMethod.GET)
