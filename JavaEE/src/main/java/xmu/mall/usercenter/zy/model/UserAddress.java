@@ -12,9 +12,16 @@ public class UserAddress {
 	int  city;                //城市ID
 	int  district;            //区ID
 	String detail;            //详细地址
-	boolean is_default;          //是否为默认地址。注：一个用户常用地址可以是多个，默认地址就只有一个(⊙o⊙)哦
+	int is_default;          //是否为默认地址。注：一个用户常用地址可以是多个，默认地址就只有一个(⊙o⊙)哦 
 	
 	
+	@Override
+	public String toString() {
+		return "UserAddress [address_id=" + address_id + ", user_id=" + user_id + ", consignee=" + consignee
+				+ ", zipcode=" + zipcode + ", telephone=" + telephone + ", country=" + country + ", province="
+				+ province + ", city=" + city + ", district=" + district + ", detail=" + detail + ", is_default="
+				+ is_default + "]";
+	}
 	public long getAddress_id() {
 		return address_id;
 	}
@@ -45,7 +52,7 @@ public class UserAddress {
 	public String getDetail() {
 		return detail;
 	}
-	public boolean isIs_default() {
+	public int isIs_default() {
 		return is_default;
 	}
 	public void setAddress_id(long address_id) {
@@ -78,7 +85,7 @@ public class UserAddress {
 	public void setDetail(String detail) {
 		this.detail = detail;
 	}
-	public void setIs_default(boolean is_default) {
+	public void setIs_default(int is_default) {
 		this.is_default = is_default;
 	}
 	

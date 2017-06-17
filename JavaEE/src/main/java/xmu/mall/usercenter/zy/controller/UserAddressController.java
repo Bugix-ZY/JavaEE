@@ -84,7 +84,7 @@ public class UserAddressController {
 		address.setZipcode(request.getParameter("zipcode").toString());
 		address.setDetail(request.getParameter("details").toString());
 		address.setCountry(1);
-		address.setIs_default(false);
+		address.setIs_default(0);
 		String province = request.getParameter("province.region_id");
 		String city = request.getParameter("city.region_id");
 		String district = request.getParameter("district.region_id");
@@ -92,6 +92,7 @@ public class UserAddressController {
 		address.setCity(Integer.parseInt(city));
 		address.setDistrict(Integer.parseInt(district));
 		// 增加地址
+		System.out.println(address);
 		userAddressService.addAddress(address);
 		return "redirect:/user/address/all";
 	}

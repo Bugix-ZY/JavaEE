@@ -16,8 +16,10 @@
    
     <!-- 增加地址 -->
 	<insert id="addAddress" parameterType="xmu.mall.usercenter.zy.model.UserAddress">
-		INSERT INTO 142550_useraddress(user_id, consignee，zipcode，country，province，city，district，detail，is_default，telephone)
-		VALUES (#{user_id},#{consignee},#{zipcode},#{country},#{province},#{city},#{district},#{detail},#{is_default},#{telephone})
+		INSERT INTO 142550_useraddress
+		(user_id, consignee, zipcode, country, province, city, district, detail, is_default, telephone) 
+		VALUES 
+		(#{user_id},#{consignee},#{zipcode},#{country},#{province},#{city},#{district},#{detail},#{is_default},#{telephone})
 	</insert>
 	
 	
