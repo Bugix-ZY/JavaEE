@@ -2,6 +2,7 @@ package xmu.mall.usercenter.zy.service;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
 
 import xmu.mall.usercenter.zy.model.Region;
@@ -13,4 +14,5 @@ public interface IUserAddressService {
 	public void deleteAddress(long addressid);
 	public void updateAddress(UserAddress address);
 	public void addAddress(UserAddress address);
+	public void setDefaultAddress(@Param("user_id")long userid,@Param("address_id") long addressid);
 }

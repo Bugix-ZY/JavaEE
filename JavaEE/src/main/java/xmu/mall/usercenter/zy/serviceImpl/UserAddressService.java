@@ -35,5 +35,8 @@ public class UserAddressService implements IUserAddressService {
 		uaMapper.addAddress(address);
 	}
 
+	public void setDefaultAddress(long userid, long addressid) {
+		uaMapper.setDefaultAddress(userid, addressid);
+	}
 
 }

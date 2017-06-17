@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.tomcat.jni.Address;
+import org.apache.velocity.runtime.directive.Foreach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -36,6 +37,12 @@ public class UserAddressController {
 	{
 		long userid = Long.valueOf(session.getAttribute("userId").toString());
 		List<UserAddress> addresses = userAddressService.getAddressByID(userid);
+		for (int i = 0; i < addresses.size(); i++) {
+			if(addresses.get(i).getIs_default() == 1){
+				addresses.add(0, addresses.get(i));
+				addresses.remove(i + 1);
+			}
+		}
 		model.addAttribute("addresses", addresses);
 		return "zy/useraddress";
 	}
@@ -109,4 +116,20 @@ public class UserAddressController {
 	{
 		return regionService.getRegionListByParentId(region_id);
 	}
+	
+	/**
+	 *  设置默认地址
+	 */
+	@RequestMapping(value="/setdefault",method=RequestMethod.POST)
+	@ResponseBody
+	public void setDefault (
+			HttpServletRequest request,
+			HttpSession session)
+	{
+		long userid = Long.valueOf(session.getAttribute("userId").toString());
+		long addressid = Long.valueOf(request.getParameter("addressid").toString());
+		System.out.println("设置默认地址");
+		userAddressService.setDefaultAddress(userid, addressid);
+	}
+	
 }

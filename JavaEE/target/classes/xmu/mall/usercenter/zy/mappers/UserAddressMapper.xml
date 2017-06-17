@@ -22,6 +22,19 @@
 		(#{user_id},#{consignee},#{zipcode},#{country},#{province},#{city},#{district},#{detail},#{is_default},#{telephone})
 	</insert>
 	
+	<!-- 设置默认地址 -->
+	<update id="setDefaultAddress">
+		UPDATE 142550_useraddress
+		SET
+		is_default = 0
+		WHERE user_id = #{user_id};
+		
+		UPDATE 142550_useraddress
+		SET
+		is_default = 1
+		WHERE address_id = #{address_id};
+	</update>
+	
 	
     <update id="updateAddress" parameterType="xmu.mall.usercenter.zy.model.UserAddress">
 		UPDATE 142550_useraddress

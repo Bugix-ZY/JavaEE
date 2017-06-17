@@ -14,7 +14,7 @@
 					<span> $address.consignee </span> &nbsp &nbsp &nbsp
 					<span> $address.telephone </span> <br />
 					<span> $address.detail </span> <br /><br />
-					<button class="black"> 设为默认地址 </button>
+					<button class="black" onclick="setDefault(${address.address_id})"> 设为默认地址 </button>
 					<button class="black" style="float:right" onclick="deleteAddress(${address.address_id})"> 删除 </button>
 					<button class="black" style="float:right"> 修改 </button>
 				</div>

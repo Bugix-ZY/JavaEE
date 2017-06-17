@@ -2,9 +2,9 @@ package xmu.mall.usercenter.zy.mappers;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
 
-import xmu.mall.usercenter.zy.model.Region;
 import xmu.mall.usercenter.zy.model.UserAddress;
 
 @Component
@@ -13,4 +13,5 @@ public interface IUserAddressMapper {
 	void deleteAddress(long addressid);
 	void updateAddress(UserAddress address);
 	void addAddress(UserAddress address);
+	void setDefaultAddress(@Param("user_id")long userid, @Param("address_id") long addressid);
 }

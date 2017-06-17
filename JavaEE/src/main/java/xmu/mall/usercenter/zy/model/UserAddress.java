@@ -52,7 +52,7 @@ public class UserAddress {
 	public String getDetail() {
 		return detail;
 	}
-	public int isIs_default() {
+	public int getIs_default() {
 		return is_default;
 	}
 	public void setAddress_id(long address_id) {

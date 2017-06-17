@@ -17,6 +17,24 @@ function deleteAddress(addressid) {
 }
 
 
+function setDefault(addressid) {
+	var springUrl = $("#hiddenSpringUrl").val();
+	$.ajax({
+		url : springUrl + "/user/address/setdefault",
+		async : false,
+		cache : false,
+		type : 'post',
+		dataType : "json",
+		data : {
+			addressid : addressid
+		},
+		success : function(data) {
+		}
+	});
+	window.location.reload();
+}
+
+
 function getCity()
 {
 	var provinceid = document.getElementById("province").value;
