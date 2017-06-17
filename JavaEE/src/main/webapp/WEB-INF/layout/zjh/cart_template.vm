@@ -10,7 +10,7 @@
 	    <script src="#springUrl('/resources/js/zjh/json2.js')"></script>
 	    <script src="#springUrl('/resources/js/zjh/cartIndex.js')"></script>
 	    <script src="#springUrl('/resources/js/zjh/material.js')"></script>
-	     <script src="#springUrl('/resources/js/zy/collection.js')"></script>
+	    <script src="#springUrl('/resources/js/zy/collection.js')"></script>
 	    <script src="#springUrl('/resources/js/zy/address.js')"></script>
 	    <link rel="stylesheet" href="#springUrl('/resources/css/zjh/material.css')">
 	   	<link rel="stylesheet" href="#springUrl('/resources/css/zjh/cartStyle.css')">

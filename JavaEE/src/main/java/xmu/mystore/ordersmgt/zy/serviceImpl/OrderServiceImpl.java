@@ -226,8 +226,10 @@ public class OrderServiceImpl implements IOrderService{
 		this.orderMapper.updateOrderRecvTime(order);
 		this.orderMapper.updateOrderStatus(order);
 	}
-
-
-
+	
+	
+	public void addOrder(Order order) {
+		this.orderMapper.addOrder(order);
+	}
 
 }

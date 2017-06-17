@@ -24,7 +24,7 @@
 		</div>
 		
 		<div style="position:absolute; position:fixed; bottom:8%;width:100%;">
-			<button class="red" style="margin-left:40%;font-size:1em;"> 新建地址+ </button>
+			<a href="#springUrl('/user/address/add')" style="margin-left:40%; width: 100%" class="red">新建地址+</a>
 		</div>
 		
 		<div id="hiddenValueDiv">

@@ -6,12 +6,21 @@
         WHERE user_id = #{user_id}
     </select>
     
+    
+   	<!-- 删除地址 -->
     <delete id="deleteAddress" parameterType="long" >
         DELETE FROM 142550_useraddress 
         WHERE address_id = #{address_id}
     </delete>
    
-    
+   
+    <!-- 增加地址 -->
+	<insert id="addAddress" parameterType="xmu.mall.usercenter.zy.model.UserAddress">
+		INSERT INTO 142550_useraddress(user_id, consignee，zipcode，country，province，city，district，detail，is_default，telephone)
+		VALUES (#{user_id},#{consignee},#{zipcode},#{country},#{province},#{city},#{district},#{detail},#{is_default},#{telephone})
+	</insert>
+	
+	
     <update id="updateAddress" parameterType="xmu.mall.usercenter.zy.model.UserAddress">
 		UPDATE 142550_useraddress
 		SET

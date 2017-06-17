@@ -130,10 +130,10 @@
 			AND	142550_goods.name like '${'%'+name+'%'}' 
 		</if>
 		<if test="brand_id != null">
-			AND	142550_brand_id=#{brand_id}
+			AND	142550_goods.brand_id=#{brand_id}
 		</if>
 		<if test="category_id != null">
-			AND 142550_category_id=#{category_id}
+			AND 142550_goods.category_id=#{category_id}
 		</if>
 		<if test="real_price != null">
 			<choose>

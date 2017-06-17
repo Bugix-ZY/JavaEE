@@ -15,10 +15,10 @@ import xmu.mystore.ordersmgt.zy.service.IOrderGoodsService;
 public class OrderGoodsServiceImpl implements IOrderGoodsService {
 
 	@Autowired
-	private IOrderGoodsMapper orderGoodsDao;
+	private IOrderGoodsMapper orderGoodsMapper;
 	
 	public List<OrderGoods> getOrderGoodsByOrderId(long id) {
-		return orderGoodsDao.getOrderGoodsByOrderId(id);
+		return orderGoodsMapper.getOrderGoodsByOrderId(id);
 	}
 
 }

@@ -25,7 +25,27 @@ public class UserInfoController {
 	
 	
 	@RequestMapping(value="/info", method=RequestMethod.GET)
-	public String userInfo(@RequestParam(value="username", required=false) String username,
+	public String userInfo(Model model, HttpSession session){
+		Long userid = Long.valueOf(session.getAttribute("userId").toString());
+		User user = userService.getUserByID(userid);
+		model.addAttribute("user", user);
+		return "zy/userinfo";
+	}
+	
+	/*
+	 *  跳转到修改用户信息页面
+	 */
+	@RequestMapping(value="/info/modify", method=RequestMethod.GET)
+	public String toModifyUserName(Model model, HttpSession session){
+		Long userid = Long.valueOf(session.getAttribute("userId").toString());
+		return "zy/usermodifyname";
+	}
+	
+	/*
+	 *  修改用户信息
+	 */
+	@RequestMapping(value="/info/modify", method=RequestMethod.POST)
+	public String ModifyUserName(@RequestParam(value="username") String username,
 			Model model, HttpSession session){
 		Long userid = Long.valueOf(session.getAttribute("userId").toString());
 		if(username != null) {
@@ -33,20 +53,9 @@ public class UserInfoController {
 		}
 		User user = userService.getUserByID(userid);
 		model.addAttribute("user", user);
-		return "zy/userinfo";
+		return "redirect:/user/info";
 	}
 	
-	@RequestMapping(value="/info/modifyname", method=RequestMethod.GET)
-	public String toModifyUserName(Model model, HttpSession session){
-		Long userid = Long.valueOf(session.getAttribute("userId").toString());
-		return "zy/usermodifyname";
-	}
-	
-//	@RequestMapping(value="/info/modifyname/", method=RequestMethod.GET)
-//	public String modifyUserName(Model model, HttpSession session){
-//		Long userid = Long.valueOf(session.getAttribute("userId").toString());
-//		return "zy/usermodifyname";
-//	}
 	
 	
 	

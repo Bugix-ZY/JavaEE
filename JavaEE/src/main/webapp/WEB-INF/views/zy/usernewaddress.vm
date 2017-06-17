@@ -1,0 +1,64 @@
+#tiles_insertTemplate({"template":"../layout/zjh/cart_template.vm"})
+	#tiles_putAttribute({"name":"title", "value": "用户信息"})#end
+	#tiles_putAttribute({"name":"body"})
+		<div id="header">
+			<div id="header-left">
+				<img src="#springUrl('/resources/images/zjh/returnPointer.png')" onclick="window.history.back();">
+			</div>
+            <div id="header-middle"> 地址修改 </div>
+		</div>
+		
+		<div id="body-content" class="greylink" style="height:93.6%">
+			<form action="#springUrl('/user/address/add')" method="post" style="margin:5%;">
+
+				收货人：	
+				<input type="text" name="username" required="required" style="outline:none; border:none;"/>
+				<hr/>
+				联系方式：
+				<input type="text" name="telephone" required="required" style="outline:none; border:none;"/>
+				<hr/>
+				邮编：
+				<input type="text" name="zipcode" required="required" style="outline:none; border:none;"/>
+				<hr/>
+				
+				省：
+				<select id="province" name="province.region_id" onchange="getCity()" required>
+					#if($provincelist)
+						#foreach($province in $provincelist)
+							<option value="$province.region_id" >$province.region_name</option>
+						#end
+					#end
+				</select>
+				<hr/>
+				
+				市：
+				<select id="city" name="city.region_id" onchange="getDistrict()" required>
+					<option></option>
+				</select>
+				<hr/>
+				
+				地区：
+				<select id="district" name="district.region_id"  required>
+					<option></option>
+				</select>
+				<hr/>
+				
+				详细地址：	<input type="text" name="details" required="required" style="outline:none; border:none;"/>
+				<hr/>
+				
+				<input type="hidden" id="regionurl" value="#springUrl('/user/address/getsubRegionList')" />
+				
+				<button class="red" type="submit"> 保存 </button>
+			</form> 
+		</div>
+		
+
+		<div id="hiddenValueDiv">
+		</div>
+	
+	
+		
+		
+	#end
+#end
+	

@@ -30,7 +30,6 @@ public interface IOrderService {
 	public List<Long> getShippingOrderIDByUserID(long userid);
 	public List<Long> getCompletedOrderIDByUserID(long userid);
 	public List<Long> getCanceledOrderIDByUserID(long userid);
-	
 	// 高级查询
 	public List<Order> searchOrder(String sn, String goodsname,String consignee,String username,
 			String mobile, String start, String end,String status,String urgency) ;
@@ -40,6 +39,9 @@ public interface IOrderService {
 	public void updateOrderAddress(Order order);
 	public void updateOrderExpressCode(Order order);
 	public void updateOrderStatus(Order order);
+	
+	/*-- 新增 --*/
+	public void addOrder(Order order);
 	
 	
 }

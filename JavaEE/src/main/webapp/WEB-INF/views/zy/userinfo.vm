@@ -17,7 +17,7 @@
 				
 			<hr/>
 			
-			<a href="#springUrl('/user/info/modifyname')">
+			<a href="#springUrl('/user/info/modify')">
 			<div style="width:98%; height:5%;margin:2%;"> 昵称
 				<span style="display:block; text-align:right;float:right;margin-right:10%;"> ${user.user_name} > </span>
 			</div>

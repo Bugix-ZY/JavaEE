@@ -19,6 +19,11 @@ import xmu.mall.goodsindex.zjh.model.AjaxReturnResult;
 import xmu.mall.goodsindex.zjh.model.OrderInfo;
 import xmu.mall.goodsindex.zjh.model.ShoppingCart;
 import xmu.mall.goodsindex.zjh.service.IShoppingCartService;
+import xmu.mystore.goodsmgt.zlt.model.Goods;
+import xmu.mystore.goodsmgt.zlt.service.GoodsService;
+import xmu.mystore.ordersmgt.zy.model.Order;
+import xmu.mystore.ordersmgt.zy.model.OrderGoods;
+import xmu.mystore.ordersmgt.zy.service.IOrderService;
 
 @Controller
 @RequestMapping(value="/cart")
@@ -27,6 +32,12 @@ public class ShoppingCartController {
 	@Autowired
 	@Qualifier("ShoppingCartService")
 	private IShoppingCartService shoppingCartService;
+	
+	@Autowired
+	private GoodsService goodService;
+	
+	@Autowired
+	private IOrderService orderService;
 	
 	/**
 	 * 跳转到购物车主页
@@ -115,4 +126,5 @@ public class ShoppingCartController {
 		model.addAttribute("orderList",orderInforList);
 		return "zjh/ordertest";
 	}
+
 }

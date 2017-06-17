@@ -9,11 +9,11 @@
 		</div>
 		
 		<div id="body-content" class="greylink" style="height:93.6%">
-			<form action="#springUrl('/user/info/')" method="get" style="margin:5%;">
+			<form action="#springUrl('/user/info/modifyname')" method="post" style="margin:5%;">
 				新昵称:
-				<input type="text" name="username" required="required" style="outline:none;width:60%; border:none;border-bottom:solid 1px #8F8F8F">
+				<input type="text" name="username" required="required" style="outline:none;width:60%; border:none;border-bottom:solid 1px #8F8F8F"/>
 				
-				<input class="red" type="submit" value="确认" style="float:right; margin-right:5%;">
+				<input class="red" type="submit" value="确认" style="float:right; margin-right:5%;"/>
 			</form> 
 		</div>
 		

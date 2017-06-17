@@ -9,4 +9,5 @@ import xmu.mystore.ordersmgt.zy.model.OrderGoods;
 @Component
 public interface IOrderGoodsMapper {
 	List<OrderGoods> getOrderGoodsByOrderId(long id);
+
 }

@@ -9,4 +9,5 @@ import xmu.mystore.ordersmgt.zy.model.OrderGoods;
 @Component
 public interface IOrderGoodsService {
 	List<OrderGoods> getOrderGoodsByOrderId(long id);
+	//public void addOrderGoods(OrderGoods orderGoods);
 }

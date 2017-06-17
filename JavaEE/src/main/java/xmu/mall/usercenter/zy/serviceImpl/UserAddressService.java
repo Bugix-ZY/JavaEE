@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import xmu.mall.usercenter.zy.mappers.IUserAddressMapper;
+import xmu.mall.usercenter.zy.model.Region;
 import xmu.mall.usercenter.zy.model.UserAddress;
 import xmu.mall.usercenter.zy.service.IUserAddressService;
 
@@ -29,5 +30,10 @@ public class UserAddressService implements IUserAddressService {
 	public void updateAddress(UserAddress address) {
 		uaMapper.updateAddress(address);
 	}
+
+	public void addAddress(UserAddress address) {
+		uaMapper.addAddress(address);
+	}
+
 
 }

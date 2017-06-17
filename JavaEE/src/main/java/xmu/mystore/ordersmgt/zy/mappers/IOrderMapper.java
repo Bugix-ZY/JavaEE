@@ -44,4 +44,7 @@ public interface IOrderMapper {
 	void updateOrderMakeTime(Order order);
 	void updateOrderRecvTime(Order order);
 	void updateOrderCancelTime(Order order);
+	
+	/*-- 新增 --*/
+	void addOrder(Order order);
 }
