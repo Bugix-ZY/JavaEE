@@ -61,7 +61,7 @@
 		description=#{description},
 		image_path=#{image_path},
 		is_dividable=#{is_dividable},
-		default_express=#{default_express},
+		default_express=#{default_express}
 		where
 		id=#{id}
 	</update>

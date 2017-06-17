@@ -63,4 +63,10 @@
 		set status='0'
 		where id=#{id}
 	</delete>
+	
+		
+	<delete id="deleteByUserIdAndGoodsId">
+		delete from 142550_shoppingcart where userId=#{user_id} and goodsId=#{goods_id}
+	</delete>
+	
 </mapper>

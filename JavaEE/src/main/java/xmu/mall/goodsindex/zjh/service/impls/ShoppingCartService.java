@@ -144,4 +144,15 @@ public class ShoppingCartService implements IShoppingCartService
 			return RenderAjaxReturnResult.renderErrorResult("删除失败!");
 		}
 	}	
+	
+	/**
+	 * 根据用户id和商品id删除购物车商品
+	 * @param user_id
+	 * @param goods_id
+	 * @return
+	 */
+	public int deleteByUserIdAndGoodsId(long user_id, long goods_id)
+	{
+		return shoppingCartMapper.deleteByUserIdAndGoodsId(user_id, goods_id);
+	}
 }

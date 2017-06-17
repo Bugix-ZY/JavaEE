@@ -39,4 +39,10 @@ public class UserAddressService implements IUserAddressService {
 		uaMapper.setDefaultAddress(userid, addressid);
 	}
 
+	public UserAddress getDefaultAddress(long user_id) {
+		return uaMapper.getDefaultAddress(user_id);
+	}
+
+
+
 }

@@ -21,4 +21,6 @@ public interface StandMapper {
 	public List<Stand> selectByPage(@Param("pageNumber") int pageNumber, @Param("pageSize") int pageSize);
 
 	public List<Stand> selectAll();
+	
+	public Stand selectByGoodsId(@Param("goodsId") Long goodsId);
 }

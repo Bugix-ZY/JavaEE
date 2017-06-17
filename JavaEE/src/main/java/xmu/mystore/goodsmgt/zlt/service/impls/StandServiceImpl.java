@@ -12,6 +12,10 @@ import xmu.mystore.goodsmgt.zlt.mapper.StandMapper;
 import xmu.mystore.goodsmgt.zlt.model.*;
 import xmu.mystore.goodsmgt.zlt.service.StandService;
 
+/**
+ * @author zhenglongtian
+ *
+ */
 @Service("StandService")
 @Transactional
 public class StandServiceImpl implements StandService {
@@ -24,17 +28,7 @@ public class StandServiceImpl implements StandService {
 			standMapper.update(stand);
 			return true;
 		} catch (Exception e) {
-			System.out.println("modifyStand:/n" + e.toString());
-			throw new MyException();
-		}
-	}
-
-	@Override
-	public List<Stand> getAllStand() {
-		try {
-			return standMapper.selectAll();
-		} catch (Exception e) {
-			System.out.println("getAllStand:/n" + e.toString());
+			System.out.println("modifyStand:/" + e.toString());
 			throw new MyException();
 		}
 	}
@@ -44,7 +38,27 @@ public class StandServiceImpl implements StandService {
 		try {
 			return standMapper.select(stand);
 		} catch (Exception e) {
-			System.out.println("getAStand:/n" + e.toString());
+			System.out.println("getAStand:/" + e.toString());
+			throw new MyException();
+		}
+	}
+
+	@Override
+	public Stand getStandByGoodsId(Goods goods) {
+		try {
+			return standMapper.selectByGoodsId(goods.getId());
+		} catch (Exception e) {
+			System.out.println("getStandByGoodsId:/" + e.toString());
+			throw new MyException();
+		}
+	}
+
+	@Override
+	public List<Stand> getAllStand() {
+		try {
+			return standMapper.selectAll();
+		} catch (Exception e) {
+			System.out.println("getAllStand:/" + e.toString());
 			throw new MyException();
 		}
 	}

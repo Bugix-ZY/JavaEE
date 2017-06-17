@@ -3,7 +3,34 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="xmu.mystore.ordersmgt.zy.mapper.IOrderMapper">
 
-	<!-- 属性id表示resultMap的表示,type表示你需要你需要映射的POJO -->
+	<insert id="addOrder" parameterType="xmu.mystore.ordersmgt.zy.model.Order">
+		insert into 142550_order_info(order_sn, user_id, order_status, consignee,address,zipcode, telephone,
+		email, goods_price, order_price, remark, total_weight, signature_characters, add_time, pay_time, make_time, shipped_time,
+		receive_time, cancel_time, expressCode, isUrgency)
+		values(#{order_sn}, #{user_id}, #{order_status}, #{consignee},#{address}, #{zipcode}, #{telephone},
+		#{email}, #{goods_price}, #{order_price}, #{remark}, #{total_weight}, #{signature_characters}, #{add_time},
+		#{pay_time}, #{make_time}, #{shipped_time},#{receive_time}, #{cancel_time}, #{expressCode}, #{isUrgency})
+	</insert>
+	
+	<update parameterType="xmu.mystore.ordersmgt.zy.model.Order"
+		id="updateOrder">
+		update 142550_order_info set
+		order_status=#{order_status},
+		remark=#{remark},
+		expressCode=#{expressCode},
+		consignee=#{consignee},
+		isUrgency=#{isUrgency},
+		address=#{address},
+		telephone=#{telephone},
+		total_weight=#{total_weight},
+		order_price=#{order_price},
+		shipped_time=#{shipped_time},
+		make_time=#{make_time},
+		pay_time=#{pay_time},
+		order_sn=#{order_sn}
+		where
+		order_id=#{order_id}
+	</update>
 	
 	
 	<!-- 查询所有订单 -->

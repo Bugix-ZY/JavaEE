@@ -15,4 +15,6 @@ public interface IUserAddressService {
 	public void updateAddress(UserAddress address);
 	public void addAddress(UserAddress address);
 	public void setDefaultAddress(@Param("user_id")long userid,@Param("address_id") long addressid);
+	public UserAddress getDefaultAddress(long user_id);
+	
 }

@@ -6,6 +6,10 @@
         WHERE user_id = #{user_id}
     </select>
     
+    <select id="getDefaultAddress" parameterType="long" resultType="xmu.mall.usercenter.zy.model.UserAddress">
+        SELECT * FROM 142550_useraddress 
+        WHERE user_id = #{user_id} AND is_default = 1
+    </select>
     
    	<!-- 删除地址 -->
     <delete id="deleteAddress" parameterType="long" >

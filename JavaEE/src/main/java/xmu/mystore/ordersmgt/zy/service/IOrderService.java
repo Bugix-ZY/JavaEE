@@ -40,6 +40,7 @@ public interface IOrderService {
 	public void updateOrderExpressCode(Order order);
 	public void updateOrderStatus(Order order);
 	
+	public void updateOrder(Order order);
 	/*-- 新增 --*/
 	public void addOrder(Order order);
 	public void receiveOrder(@Param("order_id") long order_id);

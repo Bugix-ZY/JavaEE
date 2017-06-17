@@ -45,6 +45,8 @@ public interface IOrderMapper {
 	void updateOrderRecvTime(Order order);
 	void updateOrderCancelTime(Order order);
 	
+	void updateOrder(Order order);
+	
 	/*-- 给用户信息页的接口 --*/
 	void addOrder(Order order);
 //	public List<Order> getOrderByStatus(long user_id, int status);

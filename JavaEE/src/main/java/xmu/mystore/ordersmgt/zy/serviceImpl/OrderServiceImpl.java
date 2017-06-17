@@ -254,5 +254,9 @@ public class OrderServiceImpl implements IOrderService{
         String order_sn = time + String.format("%05d",x);
 		return order_sn;
 	}
+	@Override
+	public void updateOrder(Order order) {
+		orderMapper.updateOrder(order);
+	}
 
 }

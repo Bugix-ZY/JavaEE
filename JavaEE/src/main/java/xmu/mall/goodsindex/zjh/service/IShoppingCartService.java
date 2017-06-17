@@ -43,4 +43,12 @@ public interface IShoppingCartService
 	 * @return
 	 */
 	AjaxReturnResult delete(List<ShoppingCart> shoppingCarts);
+	
+	/**
+	 * 根据用户id和商品id删除购物车商品
+	 * @param user_id
+	 * @param goods_id
+	 * @return
+	 */
+	int deleteByUserIdAndGoodsId(long user_id, long goods_id);
 }

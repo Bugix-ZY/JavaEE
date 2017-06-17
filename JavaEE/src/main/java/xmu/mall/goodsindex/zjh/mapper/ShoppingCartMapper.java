@@ -2,6 +2,8 @@ package xmu.mall.goodsindex.zjh.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import xmu.mall.goodsindex.zjh.model.ShoppingCart;
 
 public interface ShoppingCartMapper
@@ -49,5 +51,12 @@ public interface ShoppingCartMapper
 	 * @return
 	 */
 	int delete(ShoppingCart shoppingCart);
+	
+	/**
+	 * 删除购物车中已付款商品
+	 * @param shoppingCart
+	 * @return
+	 */
+	int deleteByUserIdAndGoodsId(@Param("user_id")long user_id, @Param("goods_id") long goods_id);
 
 }

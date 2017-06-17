@@ -8,7 +8,7 @@
     
     <insert id="addOrderGoods" parameterType="xmu.mystore.ordersmgt.zy.model.OrderGoods">
 		insert into 142550_order_goods(order_id, goods_id, goods_name, goods_number, goods_price)
-		Values ({order_id}, #{goods_id},#{goods_name}, #{goods_number}, #{goods_price})
+		Values (#{order_id}, #{goods_id},#{goods_name}, #{goods_number}, #{goods_price})
 	</insert>
 </mapper>
 

@@ -35,4 +35,14 @@ public interface GoodsMgtService {
 	/* 返回一个符合条件且已上架的上架信息（主要是为了查询商品价格） */
 	public Stand getGoodsPrice(Long goods_id);
 
+	/**
+	 * 根据传递进来的商品id和商品数量减少商品表相应商品的库存（stock_count字段） 
+	 * 和增加销量（pre_sale_number字段）
+	 * 同时还要修改上下架表对应商品的库存（pre_sale_count字段）
+	 * 
+	 * @param goodsId
+	 * @param num
+	 * @return
+	 */
+	public boolean deleteGoodsNumById(Long goodsId, int num);
 }

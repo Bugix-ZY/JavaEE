@@ -221,6 +221,8 @@ public class Order implements Serializable {
 	public void setOrder_sn(String order_sn) {
 		this.order_sn = order_sn;
 	}
+	
+	
 	public String toString() {
 		return "Order [order_id=" + order_id + ", order_sn=" + order_sn + ", user_id=" + user_id + ", order_status="
 				+ order_status + ", consignee=" + consignee + ", address=" + address + ", zipcode=" + zipcode

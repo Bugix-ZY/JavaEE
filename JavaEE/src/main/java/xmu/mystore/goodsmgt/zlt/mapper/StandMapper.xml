@@ -12,41 +12,48 @@
 		<result column="pre_sale_count" property="pre_sale_count" />
 	</resultMap>
 
-	<insert id="add" parameterType="xmu.mystore.goodsmgt.zlt.model.Stand">
+	<insert id="add" parameterType="xmu.mystore.goodsmgt.zlt.model.Goods">
 		insert into
-		142550_stand(goods_id,mid_user_price,market_price,real_price,on_market_time,off_market_time,pre_sale_count)
-		values(#{goods.id},#{goods.mid_user_price},#{goods.market_price},#{goods.real_price},#{goods.on_market_time},#{goods.off_market_time},#{goods.pre_sale_count})
+		142548_stand(goods_id,mid_user_price,market_price,real_price,pre_sale_count)
+		values(#{id},#{mid_user_price},#{market_price},#{real_price},#{pre_sale_number})
 	</insert>
 
 	<delete id="delete" parameterType="xmu.mystore.goodsmgt.zlt.model.Stand">
-		delete from 142550_stand where
+		delete from 142548_stand where
 		id=#{id}
 	</delete>
 
 	<update id="update" parameterType="xmu.mystore.goodsmgt.zlt.model.Stand">
-		update 142550_stand
+		update 142548_stand
 		set
 		on_market_time=#{on_market_time},
-		off_market_time=#{off_market_time},
+		off_market_time=#{off_market_time}
 		where
 		id=#{id}
 	</update>
 
 	<select id="select" resultMap="StandResult"
 		parameterType="xmu.mystore.goodsmgt.zlt.model.Stand">
-		SELECT * FROM 142550_stand WHERE ID= #{id}
+		SELECT * FROM 142548_stand WHERE ID= #{id}
+	</select>
+
+	<select id="selectByPage" resultMap="StandResult">
+		SELECT * FROM 142548_stand
+		LIMIT
+		(#{pageNumber}-1)*#{pageSize},#{pageSize}
+	</select>
+
+	<select id="selectByGoodsId" resultMap="StandResult">
+		SELECT * FROM
+		142548_stand WHERE goods_id=#{goodsId}
 	</select>
 
 	<select id="selectAll" resultMap="StandResult"
 		parameterType="xmu.mystore.goodsmgt.zlt.model.Stand">
 		SELECT *
-		FROM 142550_stand
+		FROM 142548_stand
 	</select>
 
-	<select id="selectByPage" resultMap="StandResult">
-		SELECT * FROM 142550_stand
-		LIMIT
-		(#{pageNumber}-1)*#{pageSize},#{pageSize}
-	</select>
+
 
 </mapper>

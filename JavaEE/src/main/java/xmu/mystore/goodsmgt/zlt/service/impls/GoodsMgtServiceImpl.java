@@ -86,4 +86,30 @@ public class GoodsMgtServiceImpl implements GoodsMgtService {
 		return stand;
 	}
 
+	@Override
+	public boolean deleteGoodsNumById(Long goodsId, int num) {
+		Goods goods = new Goods();
+		goods.setId(goodsId);
+		goods = goodsService.getAGoods(goods);
+		int stockCount = goods.getStock_count();
+		int preSaleNumber = goods.getPre_sale_number() + num;
+		stockCount -= num;
+		if (stockCount < 0) {
+			return false;
+		}
+		synchronized (this) {
+			/* 防止不必要的麻烦发生 */
+			goods.setStock_count(goods.getStock_count() - num);
+			goods.setPre_sale_number(preSaleNumber);
+			goodsService.modifyGoods(goods);
+			Stand stand = new Stand();
+			stand.setGoods_id(goodsId);
+			stand = standService.getStandByGoodsId(goods);
+			stand.setPre_sale_count(stand.getPre_sale_count() + num);
+			standService.modifyStand(stand);
+		}
+		return true;
+	}
+	
+
 }
