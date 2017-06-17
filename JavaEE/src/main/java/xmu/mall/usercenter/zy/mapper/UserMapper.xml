@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="xmu.mall.usercenter.zy.mapper.IUserMapper" >
+	<select id="getUserByID" parameterType="long" resultType="xmu.mall.usercenter.zy.model.User">
+        SELECT * FROM 142550_user 
+        WHERE user_id = #{user_id}
+    </select>
+    <select id="getUserByMobile" parameterType="String" resultType="xmu.mall.usercenter.zy.model.User">
+        SELECT * FROM 142550_user  
+        WHERE mobile_phone = #{mobile_phone}
+    </select>
+    <select id="getUserByUsername" parameterType="String" resultType="xmu.mall.usercenter.zy.model.User">
+        SELECT user_id FROM 142550_user  
+        WHERE user_name = #{user_name}
+    </select>
+    
+    <update id="updateOrderShipTime" parameterType="xmu.mystore.ordersmgt.zy.model.Order">
+		UPDATE 142550_order_info
+		SET
+		shipped_time = #{shipped_time}
+		WHERE order_sn = #{order_sn}
+	</update>
+    <!-- 更新昵称 -->
+     <update id="updateUsername">
+		UPDATE 142550_user
+		SET
+		user_name = #{user_name}
+		WHERE user_id = #{user_id}
+	</update>
+    <!-- 更新图片地址 -->
+</mapper>

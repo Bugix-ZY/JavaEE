@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import xmu.mall.usercenter.zy.mappers.IUserMapper;
+import xmu.mall.usercenter.zy.mapper.IUserMapper;
 import xmu.mall.usercenter.zy.model.User;
 import xmu.mall.usercenter.zy.service.IUserService;
 

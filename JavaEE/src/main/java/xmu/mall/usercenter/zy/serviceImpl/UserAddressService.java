@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import xmu.mall.usercenter.zy.mappers.IUserAddressMapper;
+import xmu.mall.usercenter.zy.mapper.IUserAddressMapper;
 import xmu.mall.usercenter.zy.model.Region;
 import xmu.mall.usercenter.zy.model.UserAddress;
 import xmu.mall.usercenter.zy.service.IUserAddressService;

@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import xmu.mall.goodsindex.zjh.constant.RenderAjaxReturnResult;
-import xmu.mall.goodsindex.zjh.mappers.ShoppingCartMapper;
+import xmu.mall.goodsindex.zjh.mapper.ShoppingCartMapper;
 import xmu.mall.goodsindex.zjh.model.AjaxReturnResult;
 import xmu.mall.goodsindex.zjh.model.ShoppingCart;
 import xmu.mall.goodsindex.zjh.service.IShoppingCartService;

@@ -1,9 +1,12 @@
 package xmu.mystore.ordersmgt.zy.serviceImpl;
 
+import java.text.Format;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,7 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 import xmu.mall.usercenter.zy.model.User;
 import xmu.mall.usercenter.zy.service.IUserService;
 import xmu.mystore.annotation.zy.ServiceLogger;
-import xmu.mystore.ordersmgt.zy.mappers.IOrderMapper;
+import xmu.mystore.ordersmgt.zy.mapper.IOrderMapper;
 import xmu.mystore.ordersmgt.zy.model.Order;
 import xmu.mystore.ordersmgt.zy.service.IOrderService;
 
@@ -230,6 +233,26 @@ public class OrderServiceImpl implements IOrderService{
 	
 	public void addOrder(Order order) {
 		this.orderMapper.addOrder(order);
+	}
+
+
+	public void receiveOrder(long order_id) {
+		Order order = orderMapper.getOrderByID(order_id);
+		orderMapper.updateOrderRecvTime(order);
+	}
+
+	public void cancelOrder(long order_id) {
+		Order order = orderMapper.getOrderByID(order_id);
+		orderMapper.updateOrderCancelTime(order);
+	}
+	
+	public String createOrder_sn() {
+		Format format = new SimpleDateFormat("yyyyMMdd");
+        String time = format.format(new Date());
+        int x = (new Random(System.currentTimeMillis())).nextInt(100000);
+        
+        String order_sn = time + String.format("%05d",x);
+		return order_sn;
 	}
 
 }

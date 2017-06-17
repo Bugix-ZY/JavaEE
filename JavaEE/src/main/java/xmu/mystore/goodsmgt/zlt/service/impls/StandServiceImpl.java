@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import xmu.mystore.goodsmgt.zlt.exception.MyException;
-import xmu.mystore.goodsmgt.zlt.mappers.StandMapper;
+import xmu.mystore.goodsmgt.zlt.mapper.StandMapper;
 import xmu.mystore.goodsmgt.zlt.model.*;
 import xmu.mystore.goodsmgt.zlt.service.StandService;
 

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import xmu.mystore.goodsmgt.zlt.exception.MyException;
-import xmu.mystore.goodsmgt.zlt.mappers.CategoryMapper;
+import xmu.mystore.goodsmgt.zlt.mapper.CategoryMapper;
 import xmu.mystore.goodsmgt.zlt.model.Category;
 import xmu.mystore.goodsmgt.zlt.service.CategoryService;
 

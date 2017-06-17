@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import xmu.mystore.ordersmgt.zy.mappers.IOrderGoodsMapper;
+import xmu.mystore.ordersmgt.zy.mapper.IOrderGoodsMapper;
 import xmu.mystore.ordersmgt.zy.model.OrderGoods;
 import xmu.mystore.ordersmgt.zy.service.IOrderGoodsService;
 
@@ -19,6 +19,10 @@ public class OrderGoodsServiceImpl implements IOrderGoodsService {
 	
 	public List<OrderGoods> getOrderGoodsByOrderId(long id) {
 		return orderGoodsMapper.getOrderGoodsByOrderId(id);
+	}
+
+	public void addOrderGoods(OrderGoods orderGoods) {
+		orderGoodsMapper.addOrderGoods(orderGoods);
 	}
 
 }

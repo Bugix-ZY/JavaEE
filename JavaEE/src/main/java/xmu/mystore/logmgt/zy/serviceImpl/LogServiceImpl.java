@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import xmu.mystore.annotation.zy.ServiceLogger;
-import xmu.mystore.logmgt.zy.mappers.ILogMapper;
+import xmu.mystore.logmgt.zy.mapper.ILogMapper;
 import xmu.mystore.logmgt.zy.model.Log;
 import xmu.mystore.logmgt.zy.service.ILogService;
 

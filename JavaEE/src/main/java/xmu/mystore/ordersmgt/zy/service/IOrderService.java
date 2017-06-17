@@ -42,6 +42,8 @@ public interface IOrderService {
 	
 	/*-- 新增 --*/
 	public void addOrder(Order order);
+	public void receiveOrder(@Param("order_id") long order_id);
+	public void cancelOrder(@Param("order_id") long order_id);
 	
-	
+	public String createOrder_sn();
 }

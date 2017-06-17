@@ -26,7 +26,7 @@ public class MybatisConfig
 		SqlSessionFactoryBean sqlSessionFactoryBean=new SqlSessionFactoryBean();
 		sqlSessionFactoryBean.setDataSource(dataSource());
 		PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-		sqlSessionFactoryBean.setMapperLocations(resolver.getResources("classpath*:xmu/*/*/*/mappers/*.xml"));
+		sqlSessionFactoryBean.setMapperLocations(resolver.getResources("classpath*:xmu/*/*/*/mapper/*.xml"));
 		return sqlSessionFactoryBean.getObject();
 	}
 	
@@ -73,7 +73,7 @@ public class MybatisConfig
 	public MapperScannerConfigurer mapperScannerConfigurer()
 	{
 		MapperScannerConfigurer mapperScannerConfigurer=new MapperScannerConfigurer();
-		mapperScannerConfigurer.setBasePackage("xmu.*.*.*.mappers");
+		mapperScannerConfigurer.setBasePackage("xmu.*.*.*.mapper");
 		mapperScannerConfigurer.setSqlSessionFactoryBeanName("sqlSessionFactory");
 		return mapperScannerConfigurer;
 	}

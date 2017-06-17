@@ -10,8 +10,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import xmu.mall.goodsindex.zjh.constant.RenderAjaxReturnResult;
 import xmu.mall.goodsindex.zjh.model.AjaxReturnResult;
-import xmu.mall.usercenter.zy.mappers.IUserCollectionMapper;
-import xmu.mall.usercenter.zy.mappers.IUserMapper;
+import xmu.mall.usercenter.zy.mapper.IUserCollectionMapper;
+import xmu.mall.usercenter.zy.mapper.IUserMapper;
 import xmu.mall.usercenter.zy.model.UserCollection;
 import xmu.mall.usercenter.zy.service.IUserCollectionService;
 

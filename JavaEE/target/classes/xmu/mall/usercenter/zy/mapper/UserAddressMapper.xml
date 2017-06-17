@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="xmu.mall.usercenter.zy.mapper.IUserAddressMapper" >
+	<select id="getAddressByID" parameterType="long" resultType="xmu.mall.usercenter.zy.model.UserAddress">
+        SELECT * FROM 142550_useraddress 
+        WHERE user_id = #{user_id}
+    </select>
+    
+    
+   	<!-- 删除地址 -->
+    <delete id="deleteAddress" parameterType="long" >
+        DELETE FROM 142550_useraddress 
+        WHERE address_id = #{address_id}
+    </delete>
+   
+   
+    <!-- 增加地址 -->
+	<insert id="addAddress" parameterType="xmu.mall.usercenter.zy.model.UserAddress">
+		INSERT INTO 142550_useraddress
+		(user_id, consignee, zipcode, country, province, city, district, detail, is_default, telephone) 
+		VALUES 
+		(#{user_id},#{consignee},#{zipcode},#{country},#{province},#{city},#{district},#{detail},#{is_default},#{telephone})
+	</insert>
+	
+	<!-- 设置默认地址 -->
+	<update id="setDefaultAddress">
+		UPDATE 142550_useraddress
+		SET
+		is_default = 0
+		WHERE user_id = #{user_id};
+		
+		UPDATE 142550_useraddress
+		SET
+		is_default = 1
+		WHERE address_id = #{address_id};
+	</update>
+	
+	
+    <update id="updateAddress" parameterType="xmu.mall.usercenter.zy.model.UserAddress">
+		UPDATE 142550_useraddress
+		SET
+		zipcode = #{zipcode},
+		consignee = #{consignee},
+		country = #{country},
+		province = #{province},
+		city = #{city},
+		district = #{district},
+		detail = #{detail}
+		WHERE address_id = #{address_id}
+	</update>
+	
+    <update id="updateConsignee">
+		UPDATE 142550_useraddress
+		SET
+		consignee = #{consignee}
+		WHERE address_id = #{address_id}
+	</update>
+	
+	 <update id="updateZipcode">
+		UPDATE 142550_useraddress
+		SET
+		zipcode = #{zipcode}
+		WHERE address_id = #{address_id}
+	</update>
+	
+	 <update id="updateCountry">
+		UPDATE 142550_useraddress
+		SET
+		country = #{country}
+		WHERE address_id = #{address_id}
+	</update>
+	
+	<update id="updateProvince">
+		UPDATE 142550_useraddress
+		SET
+		province = #{province}
+		WHERE address_id = #{address_id}
+	</update>
+	
+	<update id="updateCity">
+		UPDATE 142550_useraddress
+		SET
+		city = #{city}
+		WHERE address_id = #{address_id}
+	</update>
+	
+	<update id="district">
+		UPDATE 142550_useraddress
+		SET
+		district = #{district}
+		WHERE address_id = #{address_id}
+	</update>
+	
+	<update id="detail">
+		UPDATE 142550_useraddress
+		SET
+		detail = #{detail}
+		WHERE address_id = #{address_id}
+	</update> 
+
+	
+</mapper>

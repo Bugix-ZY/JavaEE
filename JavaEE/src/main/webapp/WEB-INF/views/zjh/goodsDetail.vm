@@ -75,10 +75,10 @@
 		<div id="footer">
 			<div><a href="javascript:void(0)"><img src="#springUrl('/resources/images/zjh/goodsDetail-footer-1.png')"/><br/>联系卖家</a></div>
 			<div><a href="javascript:void(0)"><img src="#springUrl('/resources/images/zjh/goodsDetail-footer-2.png')"/><br/>店铺</a></div>
-			#if($isCollected == "N")
-				<div><a href="javascript:void(0)" onclick="addCollection()"><img id="isCollection" src="#springUrl('/resources/images/zjh/goodsDetail-footer-3.png')"/><br/>关注</a></div>
-			#else
+			#if($isCollected == "Y")
 				<div><a href="javascript:void(0)" onclick="addCollection()"><img id="isCollection" src="#springUrl('/resources/images/zy/red_heart.png')"/><br/>关注</a></div>
+			#else
+				<div><a href="javascript:void(0)" onclick="addCollection()"><img id="isCollection" src="#springUrl('/resources/images/zjh/goodsDetail-footer-3.png')"/><br/>关注</a></div>
 			#end
 			<div><a href="#springUrl('/cart/index')"><img src="#springUrl('/resources/images/zjh/goodsDetail-footer-4.png')"/><br/>购物车</a></div>
 			<div class="buttonDiv">

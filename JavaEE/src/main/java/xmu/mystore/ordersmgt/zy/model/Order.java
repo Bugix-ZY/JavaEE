@@ -188,6 +188,39 @@ public class Order implements Serializable {
 		this.cancel_time = cancel_time;
 	}
 	
+	public void setOrder_id(long order_id) {
+		this.order_id = order_id;
+	}
+	public void setUser_id(long user_id) {
+		this.user_id = user_id;
+	}
+	public void setConsignee(String consignee) {
+		this.consignee = consignee;
+	}
+	public void setTelephone(String telephone) {
+		this.telephone = telephone;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public void setGoods_price(double goods_price) {
+		this.goods_price = goods_price;
+	}
+	public void setOrder_price(double order_price) {
+		this.order_price = order_price;
+	}
+	public void setTotal_weight(double total_weight) {
+		this.total_weight = total_weight;
+	}
+	public void setSignature_characters(String signature_characters) {
+		this.signature_characters = signature_characters;
+	}
+	public void setIsUrgency(String isUrgency) {
+		this.isUrgency = isUrgency;
+	}
+	public void setOrder_sn(String order_sn) {
+		this.order_sn = order_sn;
+	}
 	public String toString() {
 		return "Order [order_id=" + order_id + ", order_sn=" + order_sn + ", user_id=" + user_id + ", order_status="
 				+ order_status + ", consignee=" + consignee + ", address=" + address + ", zipcode=" + zipcode

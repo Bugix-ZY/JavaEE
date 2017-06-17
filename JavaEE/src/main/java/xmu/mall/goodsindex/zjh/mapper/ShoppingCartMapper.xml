@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="xmu.mall.goodsindex.zjh.mapper.ShoppingCartMapper">
+	<resultMap type="xmu.mall.goodsindex.zjh.model.ShoppingCart" id="ShoppingCartResult">
+		<id column="id" property="id" />
+		<result column="userId" property="userId" />
+		<result column="goodsId" property="goodsId" />
+		<result column="goodsNumber" property="goodsNumber" />
+			<association property="goods" column="goodsId" javaType="xmu.mystore.goodsmgt.zlt.model.Goods">
+				<result column="name" property="name" />
+				<result column="stock_count" property="stock_count" />
+				<result column="redeem_point" property="redeem_point" />
+				<result column="image_path" property="image_path" />
+				<result column="real_price" property="real_price" />
+				<result column="description" property="description" />
+				<result column="serial_code" property="serial_code" />
+			</association>
+	</resultMap>
+
+	<select id="getShoppingCartListByUserId" resultMap="ShoppingCartResult" parameterType="java.lang.Long">
+		select 
+		142550_shoppingcart.id as id,
+		142550_shoppingcart.goodsId as goodsId,
+		142550_shoppingcart.goodsNumber as goodsNumber,
+		142550_goods.name,
+		142550_goods.stock_count,
+		142550_goods.redeem_point,
+		142550_goods.image_path,
+		142550_goods.real_price,
+		142550_goods.description,
+		142550_goods.serial_code
+		from 142550_shoppingcart,142550_goods
+		where userId=#{id}
+		and 142550_goods.id=142550_shoppingcart.goodsId
+	</select>
+	
+	<select id="selectCartByGoodsIdAndUserId" resultMap="ShoppingCartResult" parameterType="xmu.mall.goodsindex.zjh.model.ShoppingCart">
+		select id,goodsNumber
+		from 142550_shoppingcart
+		where goodsId=#{goodsId} and userId=#{userId}
+	</select>
+	
+	<insert id="add" parameterType="xmu.mall.goodsindex.zjh.model.ShoppingCart">
+		insert into
+		142550_shoppingcart(userId,goodsId,goodsNumber)
+		values(#{userId},#{goodsId},#{goodsNumber})
+	</insert>
+	
+	<update id="update" parameterType="xmu.mall.goodsindex.zjh.model.ShoppingCart">
+		update 142550_shoppingcart
+		set goodsNumber=#{goodsNumber}
+		where id=#{id}
+	</update>
+	
+	<update id="addGoodsNumber" parameterType="xmu.mall.goodsindex.zjh.model.ShoppingCart">
+		update 142550_shoppingcart
+		set goodsNumber=goodsNumber+#{goodsNumber}
+		where id=#{id}
+	</update>
+	
+	<delete id="delete" parameterType="xmu.mall.goodsindex.zjh.model.ShoppingCart">
+		update 142550_shoppingcart
+		set status='0'
+		where id=#{id}
+	</delete>
+</mapper>

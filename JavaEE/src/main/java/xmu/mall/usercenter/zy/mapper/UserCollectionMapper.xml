@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="xmu.mall.usercenter.zy.mapper.IUserCollectionMapper">
+	<!-- 查询该用户所有收藏品 -->
+	<select id="getAllCollectionByUserID" parameterType="long" resultType="xmu.mall.usercenter.zy.model.UserCollection">
+		SELECT * FROM 142550_usercollection
+		WHERE user_id = #{user_id}
+	</select>
+	
+	<select id="hasCollection" resultType="xmu.mall.usercenter.zy.model.UserCollection">
+		SELECT * FROM 142550_usercollection
+		WHERE user_id = #{user_id} AND goods_id = #{goods_id}
+	</select>
+
+	<!-- 新增 -->
+	<insert id="addCollection" parameterType="xmu.mall.usercenter.zy.model.UserCollection">
+		INSERT INTO 142550_usercollection(user_id, goods_id, add_time)
+		VALUES (#{user_id},#{goods_id},#{add_time})
+	</insert>
+	
+	<!-- 取消收藏 -->
+	<delete id="deleteCollection">
+		DELETE FROM 142550_usercollection
+		WHERE user_id = #{user_id} AND goods_id = #{goods_id}
+	</delete>
+</mapper>

@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import xmu.mall.usercenter.zy.mappers.IRegionMapper;
+import xmu.mall.usercenter.zy.mapper.IRegionMapper;
 import xmu.mall.usercenter.zy.model.Region;
 import xmu.mall.usercenter.zy.service.IRegionService;
 
